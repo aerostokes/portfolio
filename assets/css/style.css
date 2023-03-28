@@ -135,26 +135,48 @@ header h1 {
     display: flex;
     flex-wrap: wrap;
     flex-grow: 1;
+    align-items: center;
 }
-.portfolio figure {
-    flex-grow: 1;
+
+.work, .top-work {
     border: 5px solid var(--emphasis-color);
-    /* height: 150px; */
-    
+    margin: 5px 10px 5px 0px;
+}
+
+.work {
+    flex-grow: 1;
+    height: 150px;
 }
 
 .top-work {
     flex-grow: 2;
     width: 100%;
-    /* height: 300px; */
+    height: 300px;
 
 }
-.top-work a {
+figure a {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
-.portfolio img {
+figure img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    object-position: top;
 }
+
+.work-caption {
+    position: absolute;
+    bottom: 20px;
+    text-decoration: none;
+    background-color: var(--emphasis-color);
+    color: var(--label-color);
+    padding: 20px 20px 20px 7px;
+}
+
 
 
 
