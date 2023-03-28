@@ -1,0 +1,116 @@
+    :root {
+        --main-text-color: darkblue;
+        --emphasis-color: rgb(69, 167, 167);
+        --background-color: lavender;
+        --label-color: rgb(52, 52, 52);
+    }
+    body {
+        font-family: Georgia;
+    }
+
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: var(--label-color);
+        align-items: flex-start;
+        height:60px;
+        width:auto;
+    }
+
+    header h1 {
+        background-color: var(--emphasis-color);
+        color: var(--label-color);
+        padding: 5px 5px 5px 20px;
+        white-space: nowrap;
+        margin-bottom: 15px;
+        font-size: 32px;
+/* TODO temp*/
+/* border:1px dashed pink */
+    }
+
+    .menu-button {
+        display: none;
+    }
+    .material-symbols-outlined {
+        /* visibility: hidden; */
+        text-align: end;
+        padding: 0px 8px;
+        margin: 10px 5px;
+        color: var(--emphasis-color);
+/* TODO temp*/
+/* border:1px dashed red */
+    }
+
+    .navigation-bar {
+        display: flex;
+        position: relative;
+        flex-direction: row;
+        padding: 10px;
+        background-color:var(--label-color);
+        /* overflow: visible; */
+/* TODO temp*/
+/* border:1px dashed pink */
+    }
+    .navigation-bar li {
+        padding: 0px 5px;
+        margin: 5px;
+        white-space: nowrap;
+        flex-grow: 1;
+        font-size: 16px;
+/* TODO temp*/
+/* border:1px dashed white */
+    }
+    .navigation-bar a, .navigation-bar span[data-popup] {
+        padding: 0px 8px;
+        margin: 10px 5px;
+        color: var(--emphasis-color);
+        border-bottom: 2px solid var(--emphasis-color);
+        text-decoration: none;
+        text-align: end;
+    }
+
+    span[data-popup]:hover::after {
+        content: attr(data-popup);
+        position: absolute;
+        top: 15px;
+        border:1px solid var(--emphasis-color);
+        background-color: var(--emphasis-color);
+        color: var(--main-text-color);
+    }
+
+    main {
+        /* min-height: 85vh; */
+    }
+
+
+
+
+/* Screen size adjustments */
+
+
+
+
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 30px;
+        white-space:normal;
+    }
+    .navigation-bar li {
+        font-size: 12px;
+    }
+        .menu-button {
+            display: contents;
+        }
+        .navigation-bar {
+            padding: 5px;
+            flex-direction: column;
+        }
+        .navigation-bar li {
+            display: none;
+        }
+        
+        .navigation-bar:hover li {
+            display: contents;
+        }
+    }
