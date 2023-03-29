@@ -5,28 +5,6 @@
     --label-color: rgb(52, 52, 52);
 }
 
-/* TODO temp settings for debugging */
-/* 
-.portfolio {
-    border:1px dashed red;
-}
-main h2, .contact li {
-    border:1px dashed red;
-}
-header h1 {
-    border:1px dashed pink;
-}
-.material-symbols-outlined {
-    border:1px dashed red;
-}
-.navigation-bar {
-    border:1px dashed pink;
-}
-.navigation-bar li {
-    border:1px dashed white;
-} 
-*/
-
 body {
     font-family: Georgia, Helvetica, sans-serif;
     background-color: var(--background-color);
@@ -198,7 +176,6 @@ main h2 {
 }
 
 .top-work:hover, .work:hover {
-    /* border: 5px solid rgb(87, 7, 98); */
     box-shadow: 0 0 15px var(--emphasis-color);
     filter: contrast(100%)
 }
@@ -293,11 +270,28 @@ main h2 {
         font-size: 12px;
         margin: 3px;
     }
+    .banner {
+        height: 100px;
+    }
     main h2 {
-        flex-basis: 100px;
-        font-size: 20px;
+        flex-basis: 80px;
+        font-size: 16px;
         padding-left: 15px;
     }
+    .profile p {
+        font-size: 10px;
+    }
+    .banner-caption-1 {
+        top: 10px;
+        left: 20px;
+        font-size: 12px;
+    }
+    .banner-caption-2 {
+        bottom: 10px;
+        right: 20px;
+        font-size: 12px;
+    }
+
 }
 
 /* TODO: check the pixel width so that navbar doesn't overhang edge of page */
