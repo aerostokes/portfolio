@@ -3,8 +3,29 @@
     --emphasis-color: rgb(69, 167, 167);
     --background-color: lavender;
     --label-color: rgb(52, 52, 52);
-    --main-headers-column-width: 200px;
 }
+
+/* TODO temp settings for debugging */
+/* 
+.portfolio {
+    border:1px dashed red;
+}
+main h2, .contact li {
+    border:1px dashed red;
+}
+header h1 {
+    border:1px dashed pink;
+}
+.material-symbols-outlined {
+    border:1px dashed red;
+}
+.navigation-bar {
+    border:1px dashed pink;
+}
+.navigation-bar li {
+    border:1px dashed white;
+} 
+*/
 
 body {
     font-family: Georgia, Helvetica, sans-serif;
@@ -55,6 +76,7 @@ header h1 {
     white-space: nowrap;
     flex-grow: 1;
     font-size: 16px;
+    position:relative;
 }
 
 .navigation-bar a, .navigation-bar span[data-popup] {
@@ -69,10 +91,14 @@ header h1 {
 span[data-popup]:hover::after {
     content: attr(data-popup);
     position: absolute;
-    top: 15px;
+    top: 11px;
+    left:-18px;
+    font-size: 16px;
+    font-weight: bold;
     border:1px solid var(--emphasis-color);
     background-color: var(--emphasis-color);
     color: var(--main-text-color);
+    z-index: 2;
 }
 
 main {
@@ -82,6 +108,46 @@ main {
     color: var(--main-text-color);
 }
 
+.banner {
+    display: flex;
+    position:relative;
+    width:100%;
+    height: 150px;
+    background-image: url("../images/spacex--p-KCm6xB9I-unsplash.png");
+    background-size:100% 100%;
+    z-index: -1;
+}
+
+.banner img {
+    object-fit: cover;
+    overflow: hidden;
+    clip-path: polygon(60% 0%, 100% 0%, 100% 100%, 25% 100% );
+    filter:grayscale(60%);
+    z-index: -1;
+}
+
+.banner-caption-1 {
+    background-color: var(--main-text-color);
+    color: var(--emphasis-color);
+    font-size: 14px;
+    white-space: nowrap;
+    position:absolute;
+    top: 20px;
+    left: 40px;
+    padding: 5px;
+}
+
+.banner-caption-2 {
+    background-color: var(--emphasis-color);
+    color: var(--main-text-color);
+    font-size: 14px;
+    white-space: nowrap;
+    position:absolute;
+    bottom: 20px;
+    right: 40px;
+    padding: 5px;
+}
+
 main section {
     display: flex;
     flex-direction: row;
@@ -89,47 +155,34 @@ main section {
 }
 
 main h2 {
-    flex-basis: var(--main-headers-column-width);
+    flex-basis: 200px;
     flex-grow: 0;
     flex-shrink: 0;
     font-size: 32px;
-    padding-left: 30px;
-    padding-right: 5px;
+    padding: 5px 5px 5px 40px;
     border-right: 3px solid var(--main-text-color); 
     text-align: end;
 }
 
-main p, .portfolio, .contact {
+.profile, .portfolio, .contact {
     padding: 15px;
 }
 
-main p {
-    font-size: 12px;
+.profile p {
+    display: inline;
+    font-size: 16px;
+    text-align: justify;
+    line-height: 1.2;
 }
 
-
-
-/* TODO temp settings for debugging */
-.portfolio {
-    border:1px dashed red;
+.profile-pic {
+    margin-left: 5px;
+    height: 100px;
+    width: auto;
+    clip-path: ellipse(45% 50% at 50% 50%);
+    shape-outside: ellipse(45% 50% at 55% 50%);
+    float: left;
 }
-/* 
-main h2, .contact li {
-    border:1px dashed red;
-}
-header h1 {
-    border:1px dashed pink;
-}
-.material-symbols-outlined {
-    border:1px dashed red;
-}
-.navigation-bar {
-    border:1px dashed pink;
-}
-.navigation-bar li {
-    border:1px dashed white;
-} 
-*/
 
 .portfolio {
     display: flex;
@@ -138,37 +191,47 @@ header h1 {
     align-items: center;
 }
 
-.work, .top-work {
+.top-work, .work {
     border: 5px solid var(--emphasis-color);
     margin: 5px 10px 5px 0px;
+    filter: contrast(75%);
 }
 
-.work {
-    flex-grow: 1;
-    height: 150px;
+.top-work:hover, .work:hover {
+    /* border: 5px solid rgb(87, 7, 98); */
+    box-shadow: 0 0 15px var(--emphasis-color);
+    filter: contrast(100%)
 }
 
 .top-work {
     flex-grow: 2;
     width: 100%;
     height: 300px;
-
 }
-figure a {
+
+.work {
+    flex-grow: 1;
+    flex-shrink: 1;
+    height: 150px;
+    width: 45%;
+}
+
+.top-work a, .work a {
     display: flex;
     position: relative;
     width: 100%;
     height: 100%;
 }
 
-figure img {
+
+.top-work img, .work img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: top;
 }
 
-.work-caption {
+.work-caption, .soon-caption {
     position: absolute;
     bottom: 20px;
     text-decoration: none;
@@ -177,9 +240,9 @@ figure img {
     padding: 20px 20px 20px 7px;
 }
 
-
-
-
+.soon-caption {
+    opacity: .7;
+}
 
 .contact {
     display: flex;
@@ -197,8 +260,6 @@ figure img {
     text-align: center;
 }
 
-
-
 .contact a {
     color: var(--main-text-color);
     text-decoration: none;
@@ -208,41 +269,56 @@ figure img {
 
 
 /* Screen size adjustments */
+@media screen and (max-width: 992px) {
+    main h2 {
+        flex-basis: 150px;
+        font-size: 24px;
+        padding-left: 20px;
+    }
+}
+
 @media screen and (max-width: 768px) {
     header {
         height: 52px;
     }
-
     header h1 {
         font-size: 26px;
         /* white-space:normal; */
         padding-left: 15px;
     }  
-
     .navigation-bar {
         padding: 5px;
     }
-
     .navigation-bar li {
         font-size: 12px;
         margin: 3px;
+    }
+    main h2 {
+        flex-basis: 100px;
+        font-size: 20px;
+        padding-left: 15px;
     }
 }
 
 /* TODO: check the pixel width so that navbar doesn't overhang edge of page */
 @media screen and (max-width: 600px) {
-        .menu-button {
-            display: contents;
-        }
-        .navigation-bar {
-            flex-direction: column;
-            padding: 2px;
-        }
-        .navigation-bar li {
-            display: none;
-        }
-        
-        .navigation-bar:hover li {
-            display: contents;
-        }
+    .menu-button {
+        display: contents;
+    }
+    .navigation-bar {
+        flex-direction: column;
+        padding: 2px;
+    }
+    .navigation-bar li {
+        display: none;
+    }
+    
+    .navigation-bar:hover li {
+        display: contents;
+    }
+
+    span[data-popup]:hover::after {
+        top: 166px;
+        left: -28px
+    }
 }
