@@ -294,7 +294,6 @@ main h2 {
 
 }
 
-/* TODO: check the pixel width so that navbar doesn't overhang edge of page */
 @media screen and (max-width: 600px) {
     .menu-button {
         display: contents;
