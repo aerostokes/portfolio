@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <!-- <link rel="stylesheet" type="text/css" href="./assets/css/reset.css"> -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <title>Rhonda Stokes's Portfolio</title>
 </head>
 <body>
@@ -28,16 +29,206 @@
             <span class="banner-caption-2">...now I build code!</span>
         </figure>
 
-        <section>
-            <h2 id="about-me">About Me</h2>
-            <figure class="profile">
-                <img class="profile-pic" src="./assets/images/rhonda-stokes.JPG" alt="Profile Pic">
-                <p>My name is Rhonda Stokes and I am a (WIP) Full Stack Developer. In my previous professional incarnation, I graduated from the Georgia Institute of Technology with a BS in Aerospace Engineering and went on to work for The Boeing Company as a Structural Design Engineer for many years (it's rude to ask a lady how many). After building several CAD automation tools, I discovered that I am quite passionate about coding, and so decided to make a mid-career pivot.
-                <br><br>
-                I am soon-to-be graduate of the University of Washington's Full Stack Development Bootcamp, and will be looking for a position where I can pair my newly acquired coding skills with the exerience in design, product development, project management, and technical leadership that I have built over more than a decade in a technology (if not software) industry.</p>
-            </figure>
-            </section>
-            
+            <div class="container">
+
+                <div class="section row" id="bio">
+                    <div class="title-box col-1">
+                        <h2>Bio</h2>
+                    </div>
+                    <div class="bio-box col text-lowercase font-monospace">
+                        <dl>
+                            <img class="profile-pic" src="./assets/images/rhonda-stokes.JPG" alt="Profile Pic">  
+                            <dt>Name:</dt>
+                            <dd>Rhonda Kaye Griffin Stokes (She/Her)</dd>
+                            <dt>Location: </dt>
+                            <dd>Seattle, WA</dd>
+
+                            <dt>Education: </dt>
+                            <dd>
+                                &#62;Full Stack Development Certification | University of Washington
+                                <br> 
+                                &#62;B.S. Aerospace Engineering | Georgia Institute of Technology
+                            </dd>
+                        
+                            <dt>Experience: </dt>
+                            <dd>Former Structural Design Engineer with a lifelong passion for automation and data analytics, 
+                                parlaying 15+ years technical experience and newly certified coding skills into a mid&#8209;career pivot to 
+                                software development
+                            </dd>   
+                        </dl>
+                    </div>
+
+
+                    <div class="w-100"></div>
+
+                    <div class="bio-box col text-lowercase font-monospace">
+                        <!-- <div style="display: inline-block;"> -->
+                        <img class="profile-pic" src="./assets/images/rhonda-stokes.JPG" alt="Profile Pic">  
+                        <dl>
+                            <dt>Name:</dt>
+                            <dd>Rhonda Kaye Griffin Stokes (She/Her)</dd>
+                        </dl>
+                        <div class="w-100"></div>
+
+                        <!-- <dl>
+                            <dt>Pronouns: </dt>
+                            <dd >She/Her</dd>
+                        </dl>
+                        <div class="w-100"></div> -->
+
+                        <dl>
+                            <dt>Location: </dt>
+                            <dd>Seattle, WA</dd>
+                        </dl>
+                        <div class="w-100"></div>
+                        
+
+                        <dl>
+                            <dt>Education: </dt>
+                            <dd>
+                                &#62;Full Stack Development Certification | University of Washington
+                                <br> 
+                                &#62;B.S. Aerospace Engineering | Georgia Institute of Technology
+                            </dd>
+                        </dl>
+                        <dl>                            
+                            <dt>Experience: </dt>
+                            <dd>Former Structural Design Engineer with a lifelong passion for automation and data analytics, 
+                                parlaying 15+ years technical experience and newly certified coding skills into a mid&#8209;career pivot to 
+                                software development
+                            </dd>   
+                        </dl>
+                    </div>
+
+
+                    <div class="w-100"></div>
+
+                    <div class="bio-box col text-lowercase font-monospace">
+                        <img class="profile-pic col-sm-auto" src="./assets/images/rhonda-stokes.JPG" alt="Profile Pic">                        
+                        <div class="col" style="display: flexbox;">
+                            <!-- <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias, officiis! Necessitatibus at repellendus, neque sit provident commodi deleniti nisi dicta facilis consectetur ea non ipsum distinctio maxime. Voluptas, incidunt quaerat?</p> -->
+                            <!-- <ul>
+                                <li>aawrfg</li>
+                                <li>aegr aer</li>
+                                <li>aowrghoer</li>
+                            </ul> -->
+                            <dl>
+                                <dt>Name:</dt>
+                                <dd>Rhonda Kaye Griffin Stokes</dd>
+                                <div class="w-100"></div>
+
+                                <dt>Pronouns: </dt>
+                                <dd >She/Her</dd>
+                                <div class="w-100"></div>
+    
+                                <dt>Location: </dt>
+                                <dd>Seattle, WA</dd>
+                                <div class="w-100"></div>
+    
+                                <dt>Education: </dt>
+                                <!-- <dd>Full Stack Development Certification, University of Washington</dd>
+                                <dd>| B.S. Aerospace Engineering, Georgia Institute of Technology</dd> -->
+
+                                <dd>
+                                    Full Stack Development Certification | University of Washington
+                                    <br> +    
+                                    B.S. Aerospace Engineering | Georgia Institute of Technology
+                                </dd>
+                                <div class="w-100"></div>
+                                
+                                <dt>Professional Background:</dt>
+                                <dd>Former Structural Design Engineer with a lifelong passion for automation and data analytics, 
+                                    parlaying 15+ years technical experience and newly certified coding skills into a mid&#8209;career pivot to 
+                                    software development
+                                </dd>   
+                            </dl>
+                        </div>
+                        
+                        <!-- <dl>
+                            <dt class="col-1">Name: </dt>
+                            <dd class="col-11">Rhonda Kaye Griffin Stokes</dd>
+                            <div class="w-100"></div>
+
+                            <dt class="col-1">Pronouns: </dt>
+                            <dd class="col-11">She/Her</dd>
+                            <div class="w-100"></div>
+
+                            <dt>Location: </dt>
+                            <dd class="col">Seattle, WA</dd>
+                            <div class="w-100"></div>
+
+                            <dt>Education: </dt>
+                            <dd class="col">> Full Stack Development Certification | University of Washington
+                                <br>
+                                > B.S. Aerospace Engineering | Georgia Institute of Technology
+                            </dd>   
+                            <div class="w-100"></div>
+                            
+                            <dt>Professional <br>Background:</dt>
+                            <dd class="col">Former Structural Design Engineer with a lifelong passion for automation and data analytics, 
+                                parlaying 15+ years technical experience and newly certified coding skills into a mid&#8209;career pivot to 
+                                software development
+                            </dd>   
+                        </dl> -->
+                    </div>
+                </div>
+
+                <div class="section row" id="portfolio">
+                    <div class="title-box col-1">
+                        <h2>Portfolio</h2>
+                    </div>
+
+                    <div class="contents-box col text-lowercase font-monospace" >
+                        <figure class="top-work">
+                            <a href="https://hashtag-adulting.herokuapp.com/">
+                                <img src="./assets/images/hashtag-adulting.png" alt="Campricorn">
+                                <span class="work-caption">#Adulting</span>
+                            </a>
+                        </figure>
+                        <figure class="work">
+                            <a href="https://aerostokes.github.io/camping-starcharts/">
+                                <img src="./assets/images/campricorn.png" alt="Campricorn">
+                                <span class="work-caption">Campricorn</span>
+                            </a>
+                        </figure>
+                        <figure class="work">
+                            <a href="https://aerostokes.github.io/02-28-CSS-cheatsheet/">
+                                <img src="./assets/images/css-snippet-cheatsheet.png" alt="CSS Snippet Cheatsheet">
+                                <span class="work-caption">CSS Snippet Cheatsheet</span>
+                            </a>
+                        </figure>
+        
+                        <figure class="work">
+                            <a href="https://aerostokes.github.io/01-22-mini-project/">
+                                <img src="./assets/images/my-new-website.png">
+                                <span class="work-caption">My New Website</span>
+                            </a>
+                        </figure>
+        
+                        <figure class="work">
+                            <a href="https://aerostokes.github.io/prework-study-guide/">
+                                <img src="./assets/images/prework-study-guide.png">
+                                <span class="work-caption">Prework Study Guide</span>
+                            </a>
+                        </figure>
+        
+                        <figure class="work">
+                            <a>
+                                <img src="./assets/images/einstein.png">
+                                <span class="soon-caption">More Coming Soon!</span>
+                            </a>
+                        </figure>
+                        <figure class="work">
+                            <a>
+                                <img src="./assets/images/ada.png">
+                                <span class="soon-caption">More Coming Soon!</span>
+                            </a>
+                        </figure>
+                    </div>
+                </div>
+                
+            </div>
+<!--             
         <section>
             <h2 id="work">Work</h2>
             <div class="portfolio">
@@ -98,7 +289,7 @@
                 <li><a href="https://github.com/aerostokes?tab=repositories">GitHub</a></li>
                 <li><a href="https://www.linkedin.com/in/rhonda-stokes-6b6590104/">LinkedIn</a></li>
             </ul>
-        </section>
+        </section> -->
     </main>
 </body>
 </html>
