@@ -24,14 +24,13 @@
             </ul>
         </header>
         <main>
-            <div style="min-height: 175px;"></div>
+            <div class="spacer"></div>
             <div class="container">
-
-                <div class="section row" id="bio">
+                <section class="row" id="bio">
                     <div class="title-box col-1">
                         <h2>Bio</h2>
                     </div>
-                    <div class="bio-box col text-lowercase font-monospace">
+                    <div class="contents-box col text-lowercase font-monospace">
                         <img class="profile-pic" src="./assets/images/rhonda-stokes.JPG" alt="Profile Pic"> 
                         <dl>
                             <dt>Name:</dt>
@@ -51,77 +50,72 @@
                             </dd>
                         
                             <dt>Experience: </dt>
-                            <dd>Former Structural Design Engineer with a lifelong passion for automation and data analytics, 
+                            <dd>Former Aerospace Design Engineer with a lifelong passion for automation and data analytics, 
                                 parlaying 15+ years technical experience and newly certified coding skills into a mid&#8209;career pivot to 
                                 software development
                             </dd>   
                         </dl>
-                    </div>
+                    </div>                    
+                </section>
 
-
-                    
-                </div>
-
-                <div class="section row" id="portfolio">
+                <section class="row" id="portfolio">
                     <div class="title-box col-1">
                         <h2>Portfolio</h2>
                     </div>
 
-                    <div class="contents-box col text-lowercase font-monospace" >
-                        <figure class="top-work">
-                            <a href="https://hashtag-adulting.herokuapp.com/">
-                                <img src="./assets/images/hashtag-adulting.png" alt="Campricorn">
-                                <span class="work-caption">#Adulting</span>
-                            </a>
-                        </figure>
-                        <figure class="work">
-                            <a href="https://aerostokes.github.io/camping-starcharts/">
-                                <img src="./assets/images/campricorn.png" alt="Campricorn">
-                                <span class="work-caption">Campricorn</span>
-                            </a>
-                        </figure>
-                        <figure class="work">
-                            <a href="https://aerostokes.github.io/02-28-CSS-cheatsheet/">
-                                <img src="./assets/images/css-snippet-cheatsheet.png" alt="CSS Snippet Cheatsheet">
-                                <span class="work-caption">CSS Snippet Cheatsheet</span>
-                            </a>
-                        </figure>
-        
-                        <figure class="work">
-                            <a href="https://aerostokes.github.io/01-22-mini-project/">
-                                <img src="./assets/images/my-new-website.png">
-                                <span class="work-caption">My New Website</span>
-                            </a>
-                        </figure>
-        
-                        <figure class="work">
-                            <a href="https://aerostokes.github.io/prework-study-guide/">
-                                <img src="./assets/images/prework-study-guide.png">
-                                <span class="work-caption">Prework Study Guide</span>
-                            </a>
-                        </figure>
-        
-                        <figure class="work">
-                            <a>
-                                <img src="./assets/images/einstein.png">
-                                <span class="soon-caption">More Coming Soon!</span>
-                            </a>
-                        </figure>
-                        <figure class="work">
-                            <a>
-                                <img src="./assets/images/ada.png">
-                                <span class="soon-caption">More Coming Soon!</span>
-                            </a>
-                        </figure>
+                    <!-- <div class="col">
+                        <div class="row">
+
+                            <div class="col-8">column8</div>
+                            <div class="col-4">column4</div>
+                        </div>
+                    </div> -->
+
+                    <div class="contents-box col" >
+
+                        <a class="card right-annotation row" href="https://hashtag-adulting.herokuapp.com/">
+                            <figure class="col-9">
+                                <img src="./assets/images/hashtag-adulting.png" alt="#adulting" class="card-img">
+                            </figure>
+                            <div class="card-body col-3">
+                                <h3 class="card-title">#Adulting</h3>
+                                <p class="card-text">description
+                                    <br><i>Collab w/ </i>
+                                </p>
+                            </div>
+                        </a>
+
+                        <a class="card left-annotation row" href="https://aerostokes.github.io/camping-starcharts/">
+                            <div class="card-body col-3">
+                                <h3 class="card-title">Campricorn</h3>
+                                <p class="card-text">description
+                                    <br><i>Collab w/ </i>
+                                </p>
+                            </div>
+                            <figure class="col-9">
+                                <img src="./assets/images/campricorn.png" alt="Campricorn" class="card-img">
+                            </figure>
+                        </a>
+
+                        <a class="card right-annotation row" href="https://aerostokes.github.io/02-28-CSS-cheatsheet/">
+                            <figure class="col-9">
+                                <img src="./assets/images/css-snippet-cheatsheet.png" alt="CSS Snippet Cheatsheet" class="card-img">
+                            </figure>
+                            <div class="card-body col-3">
+                                <h3 class="card-title">CSS Snippet Cheatsheet</h3>
+                                <p class="card-text">description</p>
+                            </div>
+                        </a>
+
                     </div>
-                </div>
-                
-                <div class="section row">
+                </section>
+
+                <section class="row">
                     <div class="title-box col-1">
                         <h2 id="contact-me">Contact</h2>
                     </div>
 
-                    <div class="bio-box col">
+                    <div class="contents-box col">
                         <ul class="contact">
                             <li><a href="tel:4046428173">(404) 642-8173</a></li>
                             <li class="email"><a href="mailto:rhonda@aerostokes.com">rhonda@aerostokes.com</a></li>
@@ -129,7 +123,7 @@
                             <li><a href="https://www.linkedin.com/in/rhonda-stokes-6b6590104/">LinkedIn</a></li>
                         </ul>
                     </div>
-                </div>
+                </section>
             </div>
         </main>
     </div>
