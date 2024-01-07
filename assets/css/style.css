@@ -193,9 +193,15 @@ dd {
     padding: 25px 10px;
 }
 
+/* to delete ??*/
 .card-img {
     border: 5px solid var(--titleblock-color);
     filter: contrast(75%);
+}
+
+.carousel-inner {
+    border: 5px solid var(--titleblock-color);
+    filter: contrast(75%); 
 }
 
 .card-title {
@@ -208,7 +214,12 @@ dd {
     font-family: monospace;
 }
 
+/* to delete?? */
 .right-annotation figure {
+    padding: 50px 75px 0px 0px;
+}
+
+.carousel {
     padding: 50px 75px 0px 0px;
 }
 
@@ -274,6 +285,12 @@ dd {
 }
 
 .card:hover .card-img{
+    /* to delete?? */
+    box-shadow: 0 0 15px var(--titleblock-color);
+    filter: contrast(100%);
+}
+
+.card:hover .carousel-inner {
     box-shadow: 0 0 15px var(--titleblock-color);
     filter: contrast(100%);
 }
