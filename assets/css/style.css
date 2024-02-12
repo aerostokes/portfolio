@@ -14,13 +14,19 @@ ul {
     --leader-height: 60px;
     --leader-width: 60px;
     --reference-length: 20px;
-    --grid-size-px: 24px;
-    --h1-cell-height: "auto";
-    --h1-cell-width: "auto";
-    --nav-cell-height: 2rem;
-    --nav-toggled-width: 8rem;
-    --nav-group-width: 12rem;
-    --navbar-height: calc(2 * var(--nav-cell-height));
+    --grid-size-px: 24px;  /* modified by script.js */
+    --h1-cell-height: "auto";  /* set by script.js */
+    --h1-cell-width: "auto";  /* set by script.js */
+    --nav-cell-height: 2rem; /* modified by script.js */
+    --nav-toggled-width: 8rem; /* modified by script.js */
+    --nav-group-width: 12rem; /* modified by script.js */
+    --navbar-height: calc(2 * var(--nav-cell-height)); /* modified by script.js */
+    --banner-width-max-px: 1400px; /* corresponds with media query size for max banner */
+    --banner-height-max-px: 280px;
+    --banner-clearance-ref-px: 90px;
+    --banner-offset-y: 0px;   /* set by script.js */
+    --parallax-spacer: calc(100vw / var(--banner-width-max-px) * var(--banner-height-max-px) - var(--nav-cell-height));   /* modified by script.js */
+
 }
 
 body {
@@ -126,13 +132,15 @@ h1 {
 .parallax {
     background-image: url("../images/aerostokes_banner.png");
     background-attachment: fixed;
-    background-position: center top 1rem;
+    background-position: center top var(--banner-offset-y);
     background-repeat: no-repeat;
-    background-size: auto 200px;
+    background-size: var(--banner-width-max-px) var(--banner-height-max-px);
+    /* background-size: contain; */
 }
 
-.spacer {
-    min-height: 160px;
+.parallax-spacer {
+    /* height: 160px; */
+    height: var(--parallax-spacer);
 }
 
 section {
@@ -301,8 +309,15 @@ dd {
 
 
 /* Screen size adjustments */
-/* @media screen and (max-width: 1399px) {
-} */
+@media screen and (max-width: 1399px) {
+    .parallax {
+        background-size: contain;
+    }
+
+    /* .parallax-spacer {
+        height: var(--parallax-spacer);
+    } */
+}
 
 @media screen and (max-width: 1199px) {
     h1 {
@@ -315,12 +330,12 @@ dd {
         font-size: calc(1.5rem + 3.6 * (1vw - 7.7px));
     }
 
-    .parallax {
+    /* .parallax {
         background-size: auto 150px;
     }
-    .spacer {
+    .parallax-spacer {
         min-height: 90px;
-    }
+    } */
 
     .navbar-nav {
         flex-wrap: nowrap;
@@ -343,23 +358,23 @@ dd {
     h1 {
         font-size: calc(1.0rem + 4.0 * (1vw - 5.7px));
     }
-    .parallax {
+    /* .parallax {
         background-size: auto 120px;
     }
-    .spacer {
+    .parallax-spacer {
         min-height: 68px;
-    }
+    } */
 }
 
 @media screen and (max-width: 575px) {
     h1 {
         font-size: 1.0rem;
     }
-    .parallax {
+    /* .parallax {
         background-size: auto 72px;
     }
-    .spacer {
+    .parallax-spacer {
         min-height: 32px;
-    }
+    } */
 
 }
