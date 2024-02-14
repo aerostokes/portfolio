@@ -73,7 +73,7 @@
         navBarHeightPx = navBarEl.offsetHeight;
         root.style.setProperty(navBarHeightVar, navBarHeightPx + "px");
 
-        // measure required offset for parallax background and spacer height, and set corresponding CSS variables
+        // measure required offset for banner and height of parallax spacer, and set corresponding CSS variables
         var bannerHeightPx = Math.min(bannerHeightMaxPx, viewportWidthPx / bannerWidthMaxPx * bannerHeightMaxPx);
         var bannerOffsetPx = Math.max(h1El.offsetHeight, navBarHeightPx) - (bannerHeightPx * bannerClearanceRatio);
         bannerOffsetPx = Math.max(0, bannerOffsetPx)

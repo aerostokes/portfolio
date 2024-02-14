@@ -10,10 +10,6 @@ ul {
     --contrast-color: rgba(10, 10, 10, 0.75);
     --text-main-color: #CCC5B8;
     --text-emphasis-color: #A04AFC;
-    --dot-radius: 10px;
-    --leader-height: 60px;
-    --leader-width: 60px;
-    --reference-length: 20px;
     --grid-size-px: 24px;  /* modified by script.js */
     --h1-cell-height: "auto";  /* set by script.js */
     --h1-cell-width: "auto";  /* set by script.js */
@@ -26,7 +22,11 @@ ul {
     --banner-clearance-ref-px: 90px;
     --banner-offset-y: 0px;   /* set by script.js */
     --parallax-spacer: calc(100vw / var(--banner-width-max-px) * var(--banner-height-max-px) - var(--nav-cell-height));   /* modified by script.js */
-
+    --card-img-border-width: 5px;
+    --dot-radius: 10px;
+    --leader-height: 60px;
+    --leader-width: 60px;
+    --reference-length: 20px;
 }
 
 body {
@@ -39,6 +39,9 @@ body {
     background-size: var(--grid-size-px) var(--grid-size-px);
 }
 
+header {
+    height: var(--navbar-height);
+}
 
 h1 {
     position: absolute;
@@ -194,19 +197,21 @@ dd {
     padding: 25px 10px;
 }
 
-.right-annotation figure {
-    padding: 50px 75px 0px 0px;
+.right-annotation :is(figure, .carousel-indicators) {
+    padding: 50px calc(75px + 2 * var(--card-img-border-width)) 0px 0px;
 }
 
-.left-annotation figure {
-    padding: 50px 0px 0px 75px;
+.left-annotation :is(figure, .carousel-indicators) {
+    padding: 50px calc(2 * var(--card-img-border-width)) 0px 75px;
 }
+
 
 .card-img {
-    border: 5px solid var(--titleblock-color);
+    border: var(--card-img-border-width) solid var(--titleblock-color);
     filter: contrast(75%);
-    aspect-ratio: 16/9;
+    aspect-ratio: 16/10;
     object-fit: contain;
+    box-sizing: content-box;
 }
 .card:hover .card-img {
     box-shadow: 0 0 15px var(--titleblock-color);
@@ -277,9 +282,16 @@ dd {
     font-weight: bold;
 }
 
-.card-text {
+.card-text, .card-footnote {
     color: var(--text-main-color);
     font-family: monospace;
+}
+
+.card-footnote {
+    font-style: italic;
+    font-size: 80%;
+    opacity: 80%;
+    margin-top: 0.5rem;
 }
 
 .contact {
@@ -307,6 +319,10 @@ dd {
     border-bottom: 2px solid var(--text-emphasis-color);
 }
 
+.link-unstyled {
+    color: inherit;
+    text-decoration: inherit;
+}
 
 /* Screen size adjustments */
 @media screen and (max-width: 1399px) {
