@@ -7,8 +7,8 @@ ul {
     --background-main-color: #0A82CE;
     --background-grid-color: #63BFF8;
     --titleblock-color: #F6F6F6;
-    --contrast-color: rgba(10, 10, 10, 0.75);
-    --text-main-color: #CCC5B8;
+    --contrast-color: rgba(10, 10, 10, 0.8);
+    --text-main-color: #BAB1A0;
     --text-emphasis-color: #A04AFC;
     --grid-size-px: 24px;  /* modified by script.js */
     --h1-cell-height: "auto";  /* set by script.js */
@@ -291,7 +291,7 @@ dd {
     font-style: italic;
     font-size: 80%;
     opacity: 80%;
-    margin-top: 0.5rem;
+    margin: 0.5rem 0px 0px 0px;
 }
 
 .contact {
@@ -323,6 +323,52 @@ dd {
     color: inherit;
     text-decoration: inherit;
 }
+
+.link-source {
+    position: relative;
+    display: inline-block;
+    margin: 0.5rem 0px 0px 0px;
+}
+.link-source::after, .link-source::before {
+    opacity: 0;
+    content: "";
+}
+.link-source:hover::before, .link-source:hover::after {
+    position: absolute;
+    opacity: 1;
+    left: 100%;
+    transition: opacity 0.5s 0.5s;
+}
+.link-source:hover::before {
+    content: " ";
+    top: 50%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent var(--text-main-color) transparent transparent;
+    z-index: 3;
+}
+.link-source:hover::after {
+    content: "source code";
+    margin-left: 10px;
+    font-size: 0.8rem;
+    top: 0.2rem;
+    height: 1.6rem;
+    line-height: 1.6rem;
+    width: 6rem;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    background-color: var(--text-main-color);
+    border-radius: 6px;
+    z-index: 2;
+}
+
+.link-source img {
+    height: 2rem;
+    width: 2rem;
+}
+
 
 /* Screen size adjustments */
 @media screen and (max-width: 1399px) {
@@ -392,5 +438,4 @@ dd {
     .parallax-spacer {
         min-height: 32px;
     } */
-
 }
