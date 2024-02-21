@@ -32,12 +32,12 @@
         </header>
 
         <main>
-            <div class="parallax-spacer"></div>
-            <div class="container">
+            <!-- <div class="parallax-spacer"></div> -->
+            <div class="container-fluid p-0">
 
                 <section class="row" id="bio">
                     <div class="title-box col-1">
-                        <h2>Bio</h2>
+                        <h2 id="bio">Bio</h2>
                     </div>
                     <div class="contents-box col text-lowercase font-monospace">
                         <img class="profile-pic" src="./assets/images/rhonda-stokes.JPG" alt="Profile Pic"> 
@@ -70,12 +70,12 @@
 
                 <section class="row" id="portfolio">
                     <div class="title-box col-1">
-                        <h2>Portfolio</h2>
+                        <h2 id="portfolio">Portfolio</h2>
                     </div>
                     <div class="contents-box col" >
 
                         <div id="hashtag-adulting" class="card right-annotation row">
-                            <figure id="carousel1" class="carousel slide carousel-fade col-9" data-bs-ride="carousel" data-bs-interval="2500">
+                            <figure id="carousel1" class="carousel slide carousel-fade col" data-bs-ride="carousel" data-bs-interval="2500">
                                 <div class="carousel-indicators">
                                     <button type="button" data-bs-target="#carousel1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Screenshot 1"></button>
                                     <button type="button" data-bs-target="#carousel1" data-bs-slide-to="1" aria-label="Screenshot 2"></button>
@@ -101,7 +101,7 @@
                                     </div>
                                 </a>
                             </figure>
-                            <div class="card-body col-3">
+                            <div class="card-body col">
                                 <a class="link-unstyled" href="https://hashtag-adulting.herokuapp.com/">
                                     <h3 class="card-title">#Adulting</h3>
                                     <p class="card-text">Adulting made easy: hassle-free reminders for your busy life</p>
@@ -112,15 +112,15 @@
                         </div>
                     
                         <div id="cropposition" class="card left-annotation row">
-                            <div class="card-body col-3">
+                            <div class="card-body col">
                                 <a class="link-unstyled" href="https://cropposition.herokuapp.com">
                                     <h3 class="card-title">Cropposition</h3>
-                                    <p class="card-text">An online multiplayer tile-placement game</p>
+                                    <p class="card-text">An online multiplayer tile&#8209placement board game</p>
                                 </a>
                                 <p class="card-footnote">Collab w/ <a href="https://github.com/alecryanhunter">@alecryanhunter</a> and <a href="https://github.com/anjaliroland">@anjaliroland</a></p>
                                 <a class="link-source" href="https://github.com/alecryanhunter/crop-game-front"><img src="./assets/images/github_icon.png" alt="github icon"></a>
                             </div>
-                            <figure id="carousel2" class="carousel slide carousel-fade col-9 carousel-dark" data-bs-ride="carousel" data-bs-interval="3500">
+                            <figure id="carousel2" class="carousel slide carousel-fade col carousel-dark" data-bs-ride="carousel" data-bs-interval="3500">
                                 <div class="carousel-indicators">
                                     <button type="button" data-bs-target="#carousel2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Screenshot 1"></button>
                                     <button type="button" data-bs-target="#carousel2" data-bs-slide-to="1" aria-label="Screenshot 2"></button>
@@ -153,12 +153,12 @@
                         </div>
                             
                         <div id="hp-trivia" class="card right-annotation row">
-                            <figure class="col-9">
+                            <figure class="col">
                                 <a href="https://aerostokes.github.io/hp-trivia-game/">
                                     <img src="./assets/images/hp-trivia.png" alt="Harry Potter Trivia Quiz" class="card-img d-block w-100">
                                 </a>
                             </figure>
-                            <div class="card-body col-3">
+                            <div class="card-body col">
                                 <a href="https://aerostokes.github.io/hp-trivia-game/" class="link-unstyled">
                                     <h3 class="card-title">Harry Potter Trivia Quiz</h3>
                                     <p class="card-text">Test your knowledge of the wonderous wizarding world</p>
@@ -168,14 +168,14 @@
                         </div>
 
                         <div id="weather-dashboard" class="card left-annotation row">
-                            <div class="card-body col-3">
+                            <div class="card-body col">
                                 <a href="https://aerostokes.github.io/weather-dashboard/" class="link-unstyled">
                                     <h3 class="card-title">Weather Dashboard</h3>
                                     <p class="card-text">Check the 5-day forecast</p>
                                 </a>                                
                                 <a class="link-source" href="https://github.com/aerostokes/weather-dashboard"><img src="./assets/images/github_icon.png" alt="github icon"></a>
                             </div>
-                            <figure class="col-9">
+                            <figure class="col">
                                 <a href="https://aerostokes.github.io/weather-dashboard/">
                                     <img src="./assets/images/weather-dashboard.png" alt="Weather Dashboard" class="card-img d-block w-100">
                                 </a>
@@ -192,7 +192,6 @@
                     </div>
                     <div class="contents-box col">
                         <ul class="contact">
-                            <li><a href="tel:4046428173">(404) 642-8173</a></li>
                             <li class="email"><a href="mailto:rhonda@aerostokes.com">rhonda@aerostokes.com</a></li>
                             <li><a href="https://github.com/aerostokes?tab=repositories">github.com/aerostokes</a></li>
                             <li><a href="https://www.linkedin.com/in/aerostokes/">linkedin.com/in/aerostokes</a></li>
