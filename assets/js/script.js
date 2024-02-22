@@ -13,17 +13,17 @@
     var navCellResizerEl = document.getElementById("nav-cell-resizer");
     var navCellHeightVar = "--nav-cell-height";
     var navToggledWidthVar = "--nav-toggled-width";
-    var navGroupResizerEl = document.getElementById("nav-group-resizer");
-    var navGroupWidthVar = "--nav-group-width";
+var navContainerEl = document.querySelector(".nav-container");
+var navContainerWidthVar = "--nav-container-width";
     
     var navBarEl = document.querySelector(".navbar");
     var navBarHeightVar = "--navbar-height";
     var navBarCollapseEl = document.querySelector(".navbar-collapse");
     var navBarHeightPx;
 
-    var bannerWidthMaxPx = parseFloat(rootStyle.getPropertyValue("--banner-width-max-px"));
-    var bannerHeightMaxPx = parseFloat(rootStyle.getPropertyValue("--banner-height-max-px"));
-    var bannerClearanceRatio = parseFloat(rootStyle.getPropertyValue("--banner-clearance-ref-px")) / bannerHeightMaxPx;
+    var bannerWidthRef = parseFloat(rootStyle.getPropertyValue("--banner-width-ref"));
+    var bannerHeightRef = parseFloat(rootStyle.getPropertyValue("--banner-height-ref"));
+    var bannerClearanceRatio = parseFloat(rootStyle.getPropertyValue("--banner-clearance-ref")) / bannerHeightRef;
     var bannerOffsetVar = "--banner-offset-y";
     var parallaxSpacerVar = "--parallax-spacer";
 
@@ -50,7 +50,7 @@
         root.style.setProperty(h1WidthVar, "auto");
         root.style.setProperty(navCellHeightVar, "auto");
         root.style.setProperty(navToggledWidthVar, "auto");
-        root.style.setProperty(navGroupWidthVar, "auto");
+        root.style.setProperty(navContainerWidthVar, "auto");
         
         // show navbar (if hidden), collect auto-sized dimensions, then re-hide navbar
         navBarCollapseEl.classList.add("show");
@@ -58,29 +58,30 @@
         var h1WidthBaselinePx = h1El.offsetWidth;
         var navCellHeightBaselinePx = navCellResizerEl.offsetHeight;
         var navToggledWidthBaselinePx = navCellResizerEl.offsetWidth;
-        var navGroupWidthBaselinePx = navGroupResizerEl.offsetWidth;
+var navContainerWidthBaselinePx = navContainerEl.offsetWidth;
         navBarCollapseEl.classList.remove("show");
         
         // adjust CSS variables for sizing of navbar elements to align with gridlines
         remSizePx = parseFloat(rootStyle.getPropertyValue("font-size"));
         setSizeForGridAlignment(h1HeightBaselinePx, h1HeightVar);
         setSizeForGridAlignment(h1WidthBaselinePx, h1WidthVar);
-        setSizeForGridAlignment(navCellHeightBaselinePx, navCellHeightVar);
+navBarHeightPx = setSizeForGridAlignment(navCellHeightBaselinePx, navCellHeightVar);
         setSizeForGridAlignment(navToggledWidthBaselinePx, navToggledWidthVar);
-        setSizeForGridAlignment(navGroupWidthBaselinePx, navGroupWidthVar);
+        setSizeForGridAlignment(navContainerWidthBaselinePx, navContainerWidthVar);
 
-        // measure final navbar height and set corresponding CSS variable to control curtain transformation 
-        navBarHeightPx = navBarEl.offsetHeight;
-        root.style.setProperty(navBarHeightVar, navBarHeightPx + "px");
+// measure final navbar height and set corresponding CSS variable to control curtain transformation 
+// navBarHeightPx = navCellResizerEl.offsetHeight;
+console.log(navBarHeightPx)
+root.style.setProperty(navBarHeightVar, navBarHeightPx + "px");
 
-        // measure required offset for banner and height of parallax spacer, and set corresponding CSS variables
-        var bannerHeightPx = Math.min(bannerHeightMaxPx, viewportWidthPx / bannerWidthMaxPx * bannerHeightMaxPx);
-        var bannerOffsetPx = Math.max(h1El.offsetHeight, navBarHeightPx) - (bannerHeightPx * bannerClearanceRatio);
-        bannerOffsetPx = Math.max(0, bannerOffsetPx)
-        root.style.setProperty(bannerOffsetVar, bannerOffsetPx + "px"); 
+// measure required offset for banner and height of parallax spacer, and set corresponding CSS variables
+var bannerHeightPx = Math.min(bannerHeightRef, viewportWidthPx / bannerWidthRef * bannerHeightRef);
+var bannerOffsetPx = Math.max(h1El.offsetHeight, navBarHeightPx) - (bannerHeightPx * bannerClearanceRatio);
+bannerOffsetPx = Math.max(0, bannerOffsetPx)
+root.style.setProperty(bannerOffsetVar, bannerOffsetPx + "px"); 
 
-        var parallaxSpacerPx = bannerHeightPx - navBarHeightPx + bannerOffsetPx
-        root.style.setProperty(parallaxSpacerVar, parallaxSpacerPx + "px"); 
+var parallaxSpacerPx = bannerHeightPx + bannerOffsetPx
+root.style.setProperty(parallaxSpacerVar, parallaxSpacerPx + "px"); 
     }
 
     function setSizeForGridAlignment(sizeBaselinePx, sizeVar) {
@@ -89,6 +90,8 @@
 
         var sizeNewRem = sizeNewGrids * gridNewPx / remSizePx + "rem";
         root.style.setProperty(sizeVar, sizeNewRem);
+
+return sizeNewGrids * gridNewPx
     }
 
     function scrollHandler() {

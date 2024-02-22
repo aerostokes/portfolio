@@ -5,23 +5,24 @@ ul {
 
 :root {
     --background-main-color: #002C52;
-    --background-main-transparent: rgba(0, 44, 82, 0.8);
+    --background-main-transparent: rgba(0, 44, 82, 0.88);
     --background-grid-color: #004C8F;
     --titleblock-color: #EEF0F2;
     --text-main-color: #E0DDCF;
     --text-emphasis-color: #BB7CFF;
+    --text-emphasis-filter: invert(55%) sepia(53%) saturate(2467%) hue-rotate(226deg) brightness(102%) contrast(101%);
     --grid-size-px: 24px;  /* modified by script.js */
     --h1-cell-height: "auto";  /* set by script.js */
     --h1-cell-width: "auto";  /* set by script.js */
     --nav-cell-height: 2rem; /* modified by script.js */
     --nav-toggled-width: 8rem; /* modified by script.js */
-    --nav-group-width: 12rem; /* modified by script.js */
-    --navbar-height: calc(2 * var(--nav-cell-height)); /* modified by script.js */
-    --banner-width-max-px: 1400px; /* corresponds with media query size for max banner */
-    --banner-height-max-px: 280px;
-    --banner-clearance-ref-px: 90px;
+    --nav-container-width: "auto"; /* modified by script.js */
+    --navbar-height: var(--nav-cell-height); /* modified by script.js */
+    --banner-width-ref: 1400; /* corresponds with media query size for max banner */
+    --banner-height-ref: 280;
+    --banner-clearance-ref: 90;
     --banner-offset-y: 0px;   /* set by script.js */
-    --parallax-spacer: calc(100vw / var(--banner-width-max-px) * var(--banner-height-max-px) - var(--nav-cell-height));   /* modified by script.js */
+    --parallax-spacer: calc(100vw / var(--banner-width-ref) * var(--banner-height-ref) );   /* modified by script.js */
     --card-title-font-size: 1.75rem;
     --card-figure-offset-y: 60px;
     --card-figure-gutter-x: 40px;
@@ -36,33 +37,106 @@ body {
     font-family: Georgia, Helvetica, sans-serif;
     color: var(--text-main-color);
     background-color: var(--background-main-color);
-}
-
-.parallax {
+    overscroll-behavior: none;
     background-image: 
         linear-gradient(to right, var(--background-grid-color) 1px, transparent -10px),
         linear-gradient(to bottom, var(--background-grid-color) 1px, transparent 1px);
     background-size: var(--grid-size-px) var(--grid-size-px);
+    background-attachment: fixed;
+    background-repeat: repeat;
 }
 
-.parallax::before {
-    content: "";
-    position: fixed;
-    height: 100%;
-    width: 100%;
+main {
     background-image: url("../images/aerostokes_banner.png");
     background-position: center top var(--banner-offset-y);
     background-repeat: no-repeat;
-    background-size: var(--banner-width-max-px) var(--banner-height-max-px);
+    background-size: calc(1px * var(--banner-width-ref)) calc(1px * var(--banner-height-ref));
+    /* background-size: contain; */
+    background-attachment: fixed;
+    padding-top: var(--parallax-spacer);
+}
+
+/* main::before {
+    content: "";
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    height: 100%;
+    width: 100%;
+    background-image: 
+        linear-gradient(to right, var(--background-grid-color) 1px, transparent -10px),
+        linear-gradient(to bottom, var(--background-grid-color) 1px, transparent 1px);
+    background-size: var(--grid-size-px) var(--grid-size-px);
+    background-attachment: fixed;
+    background-repeat: repeat;
+    z-index: -1;
+} */
+
+.container-fluid, section {
+    background: inherit;
+    position: relative;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    z-index: 0;
+    overflow: hidden;
+}
+
+section::before {
+    content: "";
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    height: 110%;
+    width: 110%;
+    background: inherit;
+    box-shadow: inset 0 0 0 55vw var(--background-main-transparent);
+    filter: blur(3px);
+    z-index: -2;
+}
+
+.nav-container {
+    background: inherit;
+    /* background-color: var(--background-main-color);
+    background-image: 
+        linear-gradient(to right, var(--background-grid-color) 1px, transparent -10px),
+        linear-gradient(to bottom, var(--background-grid-color) 1px, transparent 1px);
+    background-size: var(--grid-size-px) var(--grid-size-px);
+    background-attachment: fixed;
+    background-repeat: repeat; */
+}
+
+section::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    height: 100%;
+    width: 100%;
+    background-image: 
+        linear-gradient(to right, var(--background-grid-color) 1px, transparent -10px),
+        linear-gradient(to bottom, var(--background-grid-color) 1px, transparent 1px);
+    background-size: var(--grid-size-px) var(--grid-size-px);
+    background-attachment: fixed;
+    background-repeat: repeat;
+    z-index: -1;
 }
 
 header {
-    height: var(--navbar-height);
+    /* height: var(--navbar-height); */
+    height: 0px;
     background: inherit;
 }
 
 h1 {
     position: absolute;
+    left: 0px;
+    top: 0px; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -73,7 +147,11 @@ h1 {
     max-width: calc(50% - var(--grid-size-px));
     font-size: 2.5rem;
     color: var(--titleblock-color);
-    /* background-color: var(--background-main-color); */
+    text-shadow: 
+        2px 2px var(--background-main-color), 
+        -2px 2px var(--background-main-color), 
+        2px -2px var(--background-main-color), 
+        -2px -2px var(--background-main-color);
     border-width: 0px 3px 3px 0px;
     border-color: var(--titleblock-color);
     border-style: solid;
@@ -89,10 +167,14 @@ h1 {
 }
 
 .navbar {
-    transition: all 1s cubic-bezier(0.1, 0.3, 0.6, 1.0);
+    transition: transform 1s cubic-bezier(0.1, 0.3, 0.6, 1.0);
     z-index: 100;
     padding: 0px;
     justify-content: end;
+    align-items: flex-start;
+    background: inherit;
+    width: 100%;
+    height: 0px;
 }
 
 .curtain-active {
@@ -104,22 +186,17 @@ h1 {
 }
 
 .nav-container {
-    max-width: calc(50% - var(--grid-size-px));
-    width: auto;
+    /* max-width: calc(50% - var(--grid-size-px)); */
+    width: var(--nav-container-width);
     margin: 0px;
     padding: 0px;
     justify-content: end!important;
     align-items: start!important;
 }
 
-.navbar-nav {
-    flex-wrap: wrap;
-}
-
-.nav-group {
-    width: var(--nav-group-width);
-    overflow: hidden;
-}
+/* .navbar-toggler, .navbar-nav {
+    position: relative;
+} */
 
 .material-symbols-outlined {
     font-size: inherit;
@@ -134,40 +211,32 @@ h1 {
     padding: 8px 3px;
     text-transform: uppercase;
     color: var(--titleblock-color);
-    background-color: var(--background-main-transparent);
+    text-shadow: 
+        1px 1px var(--background-main-color), 
+        -1px 1px var(--background-main-color), 
+        1px -1px var(--background-main-color), 
+        -1px -1px var(--background-main-color);
     border-radius: 0px;
     border-width: 0px 0px 3px 3px;
     border-style: solid;
     border-color: var(--titleblock-color);
+    text-decoration: underline;
 }
 
-.nav-link {
+.navbar-nav, .nav-link, .navbar-toggler {
     flex: 1 1 auto!important;
-    text-decoration: underline;
+
+}
+
+
+.nav-link:hover {
+    color: var(--text-emphasis-color);
 }
 
 .navbar-toggler:focus {
     box-shadow: none;
 }
 
-/* .parallax-spacer {
-    height: var(--parallax-spacer);
-} */
-
-main {
-    position: relative;
-    top: var(--parallax-spacer);
-    background: inherit;
-    box-shadow: inset 0 0 0 50vw var(--background-main-transparent);
-}
-
-main::before {
-    content: "";
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: inherit;
-}
 
 .container-fluid {
     position: relative;
@@ -203,7 +272,6 @@ h2 {
 }
 
 .contents-box {
-    /* background-color: var(--background-main-transparent); */
     color: var(--text-main-color);
     padding: 30px;
 }
@@ -217,6 +285,11 @@ dt {
 
 dd {
     color: var(--text-emphasis-color);
+    text-shadow: 
+        1px 1px var(--background-main-color), 
+        -1px 1px var(--background-main-color), 
+        1px -1px var(--background-main-color), 
+        -1px -1px var(--background-main-color);
 }
 
 .profile-pic {
@@ -310,6 +383,10 @@ dd {
     background-repeat:no-repeat;
 }
 
+.card {
+    border: none;
+}
+
 .card-body {
     flex-basis: 20%;
     flex-grow: 0;
@@ -319,6 +396,11 @@ dd {
 .card-title {
     font-size: var(--card-title-font-size);
     color: var(--text-emphasis-color);
+    text-shadow: 
+        2px 2px var(--background-main-color), 
+        -2px 2px var(--background-main-color), 
+        2px -2px var(--background-main-color), 
+        -2px -2px var(--background-main-color);
     text-transform: uppercase;
 }
 
@@ -326,7 +408,7 @@ dd {
     text-decoration: underline;
 }
 
-.card-text, .card-footnote {
+.card-text, .card-footnote, .card-footnote a {
     color: var(--text-main-color);
     font-family: monospace;
 }
@@ -349,19 +431,24 @@ dd {
 }
 
 .contact li {
-    padding: 0px 5px;
-    white-space: nowrap;
-    font-size: 16px; 
     margin: 5px;
-    text-align: center;
 }
 
 .contact a {
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem; 
     color: var(--text-emphasis-color);
     text-decoration: none;
-    padding: 0px 2px;
-    border-bottom: 2px solid var(--text-emphasis-color);
 }
+
+.contact .icon {
+    margin-right: 4px;
+    filter: var(--text-emphasis-filter);
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
 
 .link-unstyled {
     color: inherit;
@@ -408,15 +495,17 @@ dd {
     z-index: 2;
 }
 
-.link-source img {
+.link-source .icon {
     height: var(--card-title-font-size);
     width: var(--card-title-font-size);
+    filter: var(--text-emphasis-filter);
 }
+
 
 
 /* Screen size adjustments */
 @media screen and (max-width: 1399px) {
-    .parallax::before {
+    main {
         background-size: contain;
     }
 }
@@ -451,11 +540,11 @@ dd {
         font-size: calc(1.5rem + 3.6 * (1vw - 7.7px));
     }
 
-    .navbar-nav {
+    /* .navbar-nav {
         flex-wrap: nowrap;
-    }
+    } */
 
-    .nav-link, .navbar-toggler, .navbar-nav {
+    .nav-container {
         width: var(--nav-toggled-width)!important;
     }
 
