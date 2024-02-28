@@ -6,26 +6,20 @@
     var gridBaselinePx = parseFloat(rootStyle.getPropertyValue(gridSizeVar));
     var gridNewPx;
     
-    var h1El = document.querySelector("h1");
-    var h1HeightVar = "--h1-cell-height";
-    var h1WidthVar = "--h1-cell-width";
+    var brandBlockEl = document.getElementById("brand-block");
+    var brandHeightVar = "--brand-block-height";
+    var brandWidthVar = "--brand-block-width";
 
-    var navCellResizerEl = document.getElementById("nav-cell-resizer");
-    var navCellHeightVar = "--nav-cell-height";
-    var navToggledWidthVar = "--nav-toggled-width";
-var navContainerEl = document.querySelector(".nav-container");
-var navContainerWidthVar = "--nav-container-width";
-    
-    var navBarEl = document.querySelector(".navbar");
-    var navBarHeightVar = "--navbar-height";
-    var navBarCollapseEl = document.querySelector(".navbar-collapse");
-    var navBarHeightPx;
+    var navBlockEl = document.getElementById("nav-block");
+    var navWidthVar = "--nav-block-width";
+    var navHeightVar = "--nav-block-height";
+    var navToggleBarEl = document.getElementById("nav-toggle-bar");
+            var navHeightPx;
 
     var bannerWidthRef = parseFloat(rootStyle.getPropertyValue("--banner-width-ref"));
     var bannerHeightRef = parseFloat(rootStyle.getPropertyValue("--banner-height-ref"));
-    var bannerClearanceRatio = parseFloat(rootStyle.getPropertyValue("--banner-clearance-ref")) / bannerHeightRef;
+    var bannerHeaderClearanceRatio = parseFloat(rootStyle.getPropertyValue("--banner-header-clearance-ref")) / bannerHeightRef;
     var bannerOffsetVar = "--banner-offset-y";
-    var parallaxSpacerVar = "--parallax-spacer";
 
     var posBeforeScroll = window.scrollY;
     
@@ -46,42 +40,33 @@ var navContainerWidthVar = "--nav-container-width";
         root.style.setProperty(gridSizeVar, gridNewPx + "px");
         
         // reset auto-sized elements
-        root.style.setProperty(h1HeightVar, "auto");
-        root.style.setProperty(h1WidthVar, "auto");
-        root.style.setProperty(navCellHeightVar, "auto");
-        root.style.setProperty(navToggledWidthVar, "auto");
-        root.style.setProperty(navContainerWidthVar, "auto");
+        root.style.setProperty(brandHeightVar, "auto");
+        root.style.setProperty(brandWidthVar, "auto");
+        root.style.setProperty(navHeightVar, "auto");
+        root.style.setProperty(navWidthVar, "auto");
         
-        // show navbar (if hidden), collect auto-sized dimensions, then re-hide navbar
-        navBarCollapseEl.classList.add("show");
-        var h1HeightBaselinePx = h1El.offsetHeight;
-        var h1WidthBaselinePx = h1El.offsetWidth;
-        var navCellHeightBaselinePx = navCellResizerEl.offsetHeight;
-        var navToggledWidthBaselinePx = navCellResizerEl.offsetWidth;
-var navContainerWidthBaselinePx = navContainerEl.offsetWidth;
-        navBarCollapseEl.classList.remove("show");
+        // expand nav-block (if hidden) and collect auto-sized dimensions, then re-hide navbar and collect the collapsed nav-block height dimension
+        navToggleBarEl.classList.add("show");
+        var brandHeightBaselinePx = brandBlockEl.offsetHeight;
+        var brandWidthBaselinePx = brandBlockEl.offsetWidth;
+        var navWidthBaselinePx = navBlockEl.offsetWidth;
+        navToggleBarEl.classList.remove("show");
+        var navHeightBaselinePx = navBlockEl.offsetHeight;
         
         // adjust CSS variables for sizing of navbar elements to align with gridlines
         remSizePx = parseFloat(rootStyle.getPropertyValue("font-size"));
-        setSizeForGridAlignment(h1HeightBaselinePx, h1HeightVar);
-        setSizeForGridAlignment(h1WidthBaselinePx, h1WidthVar);
-navBarHeightPx = setSizeForGridAlignment(navCellHeightBaselinePx, navCellHeightVar);
-        setSizeForGridAlignment(navToggledWidthBaselinePx, navToggledWidthVar);
-        setSizeForGridAlignment(navContainerWidthBaselinePx, navContainerWidthVar);
+        setSizeForGridAlignment(brandHeightBaselinePx, brandHeightVar);
+        setSizeForGridAlignment(brandWidthBaselinePx, brandWidthVar);
+        navHeightPx = setSizeForGridAlignment(navHeightBaselinePx, navHeightVar);
+        setSizeForGridAlignment(navWidthBaselinePx, navWidthVar);
 
-// measure final navbar height and set corresponding CSS variable to control curtain transformation 
-// navBarHeightPx = navCellResizerEl.offsetHeight;
-console.log(navBarHeightPx)
-root.style.setProperty(navBarHeightVar, navBarHeightPx + "px");
 
-// measure required offset for banner and height of parallax spacer, and set corresponding CSS variables
-var bannerHeightPx = Math.min(bannerHeightRef, viewportWidthPx / bannerWidthRef * bannerHeightRef);
-var bannerOffsetPx = Math.max(h1El.offsetHeight, navBarHeightPx) - (bannerHeightPx * bannerClearanceRatio);
-bannerOffsetPx = Math.max(0, bannerOffsetPx)
-root.style.setProperty(bannerOffsetVar, bannerOffsetPx + "px"); 
+        // measure required offset for banner and set corresponding CSS variable
+        var bannerHeightPx = Math.min(bannerHeightRef, viewportWidthPx / bannerWidthRef * bannerHeightRef);
+        var bannerOffsetPx = Math.max(brandBlockEl.offsetHeight, navHeightPx) - (bannerHeightPx * bannerHeaderClearanceRatio);
+        bannerOffsetPx = Math.max(0, bannerOffsetPx)
+        root.style.setProperty(bannerOffsetVar, bannerOffsetPx + "px"); 
 
-var parallaxSpacerPx = bannerHeightPx + bannerOffsetPx
-root.style.setProperty(parallaxSpacerVar, parallaxSpacerPx + "px"); 
     }
 
     function setSizeForGridAlignment(sizeBaselinePx, sizeVar) {
@@ -98,18 +83,26 @@ return sizeNewGrids * gridNewPx
         var posAfterScroll = window.scrollY;
         if (posAfterScroll == 0) {
             // reset at top
-            navBarEl.classList.remove("curtain-active");
-            navBarEl.classList.remove("curtain-hide");
-        } else if (posAfterScroll > navBarHeightPx) {
+            navBlockEl.classList.remove("active");
+            navBlockEl.classList.remove("hidden");
+        } else if (posAfterScroll > navHeightPx) {
             // if scrolling below header height
             if (posBeforeScroll < posAfterScroll) {  
-                // if scrolling down, hide curtain
-                    navBarEl.classList.add("curtain-hide");
-                    navBarCollapseEl.classList.remove("show");
+                // if scrolling down, hide curtain and collapse navbar (if needed)
+                navBlockEl.classList.add("hidden");
+                if (navToggleBarEl.classList.contains("show")) {
+                    navToggleBarEl.classList.add("collapsing");
+                    navToggleBarEl.classList.remove("show");
+                    navToggleBarEl.classList.remove("collapse");
+                    setTimeout(() => {
+                        navToggleBarEl.classList.remove("collapsing");
+                        navToggleBarEl.classList.add("collapse");
+                    }, "350");
+                }
             } else {
-                // if scrolling up, activate curtain and unhide it
-                    navBarEl.classList.add("curtain-active");
-                    navBarEl.classList.remove("curtain-hide");
+            // if scrolling up, activate curtain and unhide it
+                navBlockEl.classList.add("active");
+                navBlockEl.classList.remove("hidden");
             }
         }
         posBeforeScroll = posAfterScroll;

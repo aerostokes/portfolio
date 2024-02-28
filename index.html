@@ -9,205 +9,207 @@
     <title>AeroStokes</title>
 </head>
 <body>
-        <header>
-            <h1><span class="small-caps">Rhonda&nbsp;</span><span class="small-caps">Stokes</span></h1>
-            <nav class="navbar navbar-expand-lg">
-                <div class="nav-container container">
-                    <button class="navbar-toggler link-unstyled" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="material-symbols-outlined">menu</span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarToggler">
-                        <div class="navbar-nav flex-fill">
-                            <a class="nav-link link-unstyled" href="#">
-                                <span class="material-symbols-outlined">flight</span>
-                            </a>
-                            <a class="nav-link" href="#bio">Bio</a>
-                            <a id="nav-cell-resizer" class="nav-link" href="#portfolio">Portfolio</a>
-                            <a class="nav-link" href="#contact">Contact</a>
-                        </div>
+    <header>
+        <div id="brand-block">
+            <h1><span class="small-caps" aria-current="true">Rhonda&nbsp;</span><span class="small-caps">Stokes</span></h1>
+        </div>
+        <nav class="navbar navbar-expand-lg">
+            <div id="nav-block" class="container">
+                <button class="navbar-toggler link-unstyled" type="button" data-bs-toggle="collapse" data-bs-target="#nav-toggle-bar" aria-controls="nav-toggle-bar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+                <div id="nav-toggle-bar" class="collapse navbar-collapse">
+                    <div class="navbar-nav flex-fill">
+                        <a class="nav-link link-unstyled" href="#">
+                            <span class="material-symbols-outlined">flight</span>
+                        </a>
+                        <a class="nav-link" href="#bio">Bio</a>
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                        <a class="nav-link" href="#contact">Contact</a>
                     </div>
                 </div>
-            </nav>
-        </header>
+            </div>
+        </nav>
+    </header>
 
-        <main>
-            <div class="container-fluid p-0">
+    <main>
+        <div class="container-fluid p-0">
 
-                <section class="row" id="bio">
-                    <div class="title-box col-1">
-                        <h2 id="bio">Bio</h2>
-                    </div>
-                    <div class="contents-box col text-lowercase font-monospace">
-                        <img class="profile-pic" src="./assets/images/rhonda-stokes.JPG" alt="Profile Pic"> 
-                        <dl>
-                            <dt>Name:</dt>
-                            <dd>Rhonda Kaye Griffin Stokes</dd>
+            <section class="row" id="bio">
+                <div class="title-block col-1">
+                    <h2 id="bio">Bio</h2>
+                </div>
+                <div class="drawing-block col text-lowercase font-monospace">
+                    <img class="profile-pic" src="./assets/images/rhonda-stokes.JPG" alt="Profile Pic"> 
+                    <dl>
+                        <dt>Name:</dt>
+                        <dd>Rhonda Kaye Griffin Stokes</dd>
 
-                            <dt>Pronouns:</dt>
-                            <dd>She/Her</dd>
+                        <dt>Pronouns:</dt>
+                        <dd>She/Her</dd>
 
-                            <dt>Location: </dt>
-                            <dd>Seattle, WA</dd>
+                        <dt>Location: </dt>
+                        <dd>Seattle, WA</dd>
 
-                            <dt>Education: </dt>
-                            <dd style="display:flex">
-                                &#62;Full Stack Development Certification | University of Washington
-                                <br> 
-                                &#62;B.S. Aerospace Engineering | Georgia Institute of Technology
-                            </dd>
-                        
-                            <dt>Experience: </dt>
-                            <dd>Former Aerospace Design Engineer with a lifelong passion for automation and data analytics, 
-                                leveraging 15+ years technical experience and newly certified coding skills into a mid&#8209;career pivot to 
-                                software development
-                            </dd>   
-                        </dl>
-                    </div>                    
-                </section>
-
-
-                <section class="row" id="portfolio">
-                    <div class="title-box col-1">
-                        <h2 id="portfolio">Portfolio</h2>
-                    </div>
-                    <div class="contents-box col" >
-
-                        <div id="hashtag-adulting" class="card right-annotation row">
-                            <figure id="carousel1" class="carousel slide carousel-fade col" data-bs-ride="carousel" data-bs-interval="2500">
-                                <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carousel1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Screenshot 1"></button>
-                                    <button type="button" data-bs-target="#carousel1" data-bs-slide-to="1" aria-label="Screenshot 2"></button>
-                                    <button type="button" data-bs-target="#carousel1" data-bs-slide-to="2" aria-label="Screenshot 3"></button>
-                                    <button type="button" data-bs-target="#carousel1" data-bs-slide-to="3" aria-label="Screenshot 4"></button>
-                                    <button type="button" data-bs-target="#carousel1" data-bs-slide-to="4" aria-label="Screenshot 5"></button>
-                                </div>
-                                <a class="carousel-inner" href="https://hashtag-adulting.herokuapp.com/">
-                                    <div class="carousel-item active">
-                                        <img src="./assets/images/hashtag-adulting1.png" alt="#Adulting: homepage" class="card-img d-block w-100">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./assets/images/hashtag-adulting2.png" alt="#Adulting: view tasks by category" class="card-img d-block w-100">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./assets/images/hashtag-adulting3.png" alt="#Adulting: add or edit tasks in category"class="card-img d-block w-100">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./assets/images/hashtag-adulting4.png" alt="#Adulting: add new category from templates"class="card-img d-block w-100">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./assets/images/hashtag-adulting5.png" alt="#Adulting: edit category"class="card-img d-block w-100">
-                                    </div>
-                                </a>
-                            </figure>
-                            <div class="card-body col">
-                                <a class="link-unstyled" href="https://hashtag-adulting.herokuapp.com/">
-                                    <h3 class="card-title">#Adulting</h3>
-                                    <p class="card-text">Adulting made easy: hassle-free reminders for your busy life</p>
-                                </a>
-                                <p class="card-footnote">Collab w/ <a href="https://github.com/brenthouston">@brenthouston</a>, <a href="https://github.com/alexmoriyama">@alexmoriyama</a>, and <a href="https://github.com/taylorbwatters">@taylorbwatters</a></p>
-                                <a class="link-source" href="https://github.com/aerostokes/hashtag-adulting"><img class="icon" src="./assets/images/icon_github.png" alt="github icon"></a>
-                            </div>
-                        </div>
+                        <dt>Education: </dt>
+                        <dd style="display:flex">
+                            &#62;Full Stack Development Certification | University of Washington
+                            <br> 
+                            &#62;B.S. Aerospace Engineering | Georgia Institute of Technology
+                        </dd>
                     
-                        <div id="cropposition" class="card left-annotation row">
-                            <div class="card-body col">
-                                <a class="link-unstyled" href="https://cropposition.herokuapp.com">
-                                    <h3 class="card-title">Cropposition</h3>
-                                    <p class="card-text">An online multiplayer tile&#8209placement board game</p>
-                                </a>
-                                <p class="card-footnote">Collab w/ <a href="https://github.com/alecryanhunter">@alecryanhunter</a> and <a href="https://github.com/anjaliroland">@anjaliroland</a></p>
-                                <a class="link-source" href="https://github.com/alecryanhunter/crop-game-front"><img class="icon" src="./assets/images/icon_github.png" alt="github icon"></a>
+                        <dt>Experience: </dt>
+                        <dd>Former Aerospace Design Engineer with a lifelong passion for automation and data analytics, 
+                            leveraging 15+ years technical experience and newly certified coding skills into a mid&#8209;career pivot to 
+                            software development
+                        </dd>   
+                    </dl>
+                </div>                    
+            </section>
+
+
+            <section class="row" id="portfolio">
+                <div class="title-block col-1">
+                    <h2 id="portfolio">Portfolio</h2>
+                </div>
+                <div class="drawing-block col" >
+
+                    <div id="hashtag-adulting" class="card right-annotation row">
+                        <figure id="carousel1" class="carousel slide carousel-fade col" data-bs-ride="carousel" data-bs-interval="2500">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carousel1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Screenshot 1"></button>
+                                <button type="button" data-bs-target="#carousel1" data-bs-slide-to="1" aria-label="Screenshot 2"></button>
+                                <button type="button" data-bs-target="#carousel1" data-bs-slide-to="2" aria-label="Screenshot 3"></button>
+                                <button type="button" data-bs-target="#carousel1" data-bs-slide-to="3" aria-label="Screenshot 4"></button>
+                                <button type="button" data-bs-target="#carousel1" data-bs-slide-to="4" aria-label="Screenshot 5"></button>
                             </div>
-                            <figure id="carousel2" class="carousel slide carousel-fade col carousel-dark" data-bs-ride="carousel" data-bs-interval="3500">
-                                <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carousel2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Screenshot 1"></button>
-                                    <button type="button" data-bs-target="#carousel2" data-bs-slide-to="1" aria-label="Screenshot 2"></button>
-                                    <button type="button" data-bs-target="#carousel2" data-bs-slide-to="2" aria-label="Screenshot 3"></button>
-                                    <button type="button" data-bs-target="#carousel2" data-bs-slide-to="3" aria-label="Screenshot 4"></button>
-                                    <button type="button" data-bs-target="#carousel2" data-bs-slide-to="4" aria-label="Screenshot 5"></button>
-                                    <button type="button" data-bs-target="#carousel2" data-bs-slide-to="5" aria-label="Screenshot 6"></button>
+                            <a class="carousel-inner" href="https://hashtag-adulting.herokuapp.com/">
+                                <div class="carousel-item active">
+                                    <img src="./assets/images/portfolio/hashtag-adulting1.png" alt="#Adulting: homepage" class="card-img d-block w-100">
                                 </div>
-                                <a class="carousel-inner" href="https://cropposition.herokuapp.com">
-                                    <div class="carousel-item active">
-                                        <img src="./assets/images/cropposition1.png" alt="Cropposition: homepage" class="card-img d-block w-100">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./assets/images/cropposition2.png" alt="Cropposition: view profile" class="card-img d-block w-100">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./assets/images/cropposition3.png" alt="Cropposition: game rules"class="card-img d-block w-100">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./assets/images/cropposition4.png" alt="Cropposition: host or join a game room"class="card-img d-block w-100">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./assets/images/cropposition5.png" alt="Cropposition: game play"class="card-img d-block w-100">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./assets/images/cropposition6.png" alt="Cropposition: spend in-game coins at the shop"class="card-img d-block w-100">
-                                    </div>
-                                </a>
-                            </figure>
+                                <div class="carousel-item">
+                                    <img src="./assets/images/portfolio/hashtag-adulting2.png" alt="#Adulting: view tasks by category" class="card-img d-block w-100">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/images/portfolio/hashtag-adulting3.png" alt="#Adulting: add or edit tasks in category"class="card-img d-block w-100">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/images/portfolio/hashtag-adulting4.png" alt="#Adulting: add new category from templates"class="card-img d-block w-100">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/images/portfolio/hashtag-adulting5.png" alt="#Adulting: edit category"class="card-img d-block w-100">
+                                </div>
+                            </a>
+                        </figure>
+                        <div class="card-body col">
+                            <a class="link-unstyled" href="https://hashtag-adulting.herokuapp.com/">
+                                <h3 class="card-title">#Adulting</h3>
+                                <p class="card-text">Adulting made easy: hassle-free reminders for your busy life</p>
+                            </a>
+                            <p class="card-footnote">Collab w/ <a href="https://github.com/brenthouston">@brenthouston</a>, <a href="https://github.com/alexmoriyama">@alexmoriyama</a>, and <a href="https://github.com/taylorbwatters">@taylorbwatters</a></p>
+                            <a class="link-source" href="https://github.com/aerostokes/hashtag-adulting"><img class="icon" src="./assets/images/icons/icon_github.png" alt="github icon"></a>
                         </div>
-                            
-                        <div id="hp-trivia" class="card right-annotation row">
-                            <figure class="col">
-                                <a href="https://aerostokes.github.io/hp-trivia-game/">
-                                    <img src="./assets/images/hp-trivia.png" alt="Harry Potter Trivia Quiz" class="card-img d-block w-100">
-                                </a>
-                            </figure>
-                            <div class="card-body col">
-                                <a href="https://aerostokes.github.io/hp-trivia-game/" class="link-unstyled">
-                                    <h3 class="card-title">Harry Potter Trivia Quiz</h3>
-                                    <p class="card-text">Test your knowledge of the wonderous wizarding world</p>
-                                </a>
-                                <a class="link-source" href="https://github.com/aerostokes/hp-trivia-game"><img class="icon" src="./assets/images/icon_github.png" alt="github icon"></a>
+                    </div>
+                
+                    <div id="cropposition" class="card left-annotation row">
+                        <div class="card-body col">
+                            <a class="link-unstyled" href="https://cropposition.herokuapp.com">
+                                <h3 class="card-title">Cropposition</h3>
+                                <p class="card-text">An online multiplayer tile&#8209placement board game</p>
+                            </a>
+                            <p class="card-footnote">Collab w/ <a href="https://github.com/alecryanhunter">@alecryanhunter</a> and <a href="https://github.com/anjaliroland">@anjaliroland</a></p>
+                            <a class="link-source" href="https://github.com/alecryanhunter/crop-game-front"><img class="icon" src="./assets/images/icons/icon_github.png" alt="github icon"></a>
+                        </div>
+                        <figure id="carousel2" class="carousel slide carousel-fade col carousel-dark" data-bs-ride="carousel" data-bs-interval="3500">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carousel2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Screenshot 1"></button>
+                                <button type="button" data-bs-target="#carousel2" data-bs-slide-to="1" aria-label="Screenshot 2"></button>
+                                <button type="button" data-bs-target="#carousel2" data-bs-slide-to="2" aria-label="Screenshot 3"></button>
+                                <button type="button" data-bs-target="#carousel2" data-bs-slide-to="3" aria-label="Screenshot 4"></button>
+                                <button type="button" data-bs-target="#carousel2" data-bs-slide-to="4" aria-label="Screenshot 5"></button>
+                                <button type="button" data-bs-target="#carousel2" data-bs-slide-to="5" aria-label="Screenshot 6"></button>
                             </div>
+                            <a class="carousel-inner" href="https://cropposition.herokuapp.com">
+                                <div class="carousel-item active">
+                                    <img src="./assets/images/portfolio/cropposition1.png" alt="Cropposition: homepage" class="card-img d-block w-100">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/images/portfolio/cropposition2.png" alt="Cropposition: view profile" class="card-img d-block w-100">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/images/portfolio/cropposition3.png" alt="Cropposition: game rules"class="card-img d-block w-100">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/images/portfolio/cropposition4.png" alt="Cropposition: host or join a game room"class="card-img d-block w-100">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/images/portfolio/cropposition5.png" alt="Cropposition: game play"class="card-img d-block w-100">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/images/portfolio/cropposition6.png" alt="Cropposition: spend in-game coins at the shop"class="card-img d-block w-100">
+                                </div>
+                            </a>
+                        </figure>
+                    </div>
+                        
+                    <div id="hp-trivia" class="card right-annotation row">
+                        <figure class="col">
+                            <a href="https://aerostokes.github.io/hp-trivia-game/">
+                                <img src="./assets/images/portfolio/hp-trivia.png" alt="Harry Potter Trivia Quiz" class="card-img d-block w-100">
+                            </a>
+                        </figure>
+                        <div class="card-body col">
+                            <a href="https://aerostokes.github.io/hp-trivia-game/" class="link-unstyled">
+                                <h3 class="card-title">Harry Potter Trivia Quiz</h3>
+                                <p class="card-text">Test your knowledge of the wonderous wizarding world</p>
+                            </a>
+                            <a class="link-source" href="https://github.com/aerostokes/hp-trivia-game"><img class="icon" src="./assets/images/icons/icon_github.png" alt="github icon"></a>
                         </div>
+                    </div>
 
-                        <div id="weather-dashboard" class="card left-annotation row">
-                            <div class="card-body col">
-                                <a href="https://aerostokes.github.io/weather-dashboard/" class="link-unstyled">
-                                    <h3 class="card-title">Weather Dashboard</h3>
-                                    <p class="card-text">Check the 5-day forecast</p>
-                                </a>                                
-                                <a class="link-source" href="https://github.com/aerostokes/weather-dashboard"><img class="icon" src="./assets/images/icon_github.png" alt="github icon"></a>
-                            </div>
-                            <figure class="col">
-                                <a href="https://aerostokes.github.io/weather-dashboard/">
-                                    <img src="./assets/images/weather-dashboard.png" alt="Weather Dashboard" class="card-img d-block w-100">
-                                </a>
-                            </figure>
+                    <div id="weather-dashboard" class="card left-annotation row">
+                        <div class="card-body col">
+                            <a href="https://aerostokes.github.io/weather-dashboard/" class="link-unstyled">
+                                <h3 class="card-title">Weather Dashboard</h3>
+                                <p class="card-text">Check the 5-day forecast</p>
+                            </a>                                
+                            <a class="link-source" href="https://github.com/aerostokes/weather-dashboard"><img class="icon" src="./assets/images/icons/icon_github.png" alt="github icon"></a>
                         </div>
-
+                        <figure class="col">
+                            <a href="https://aerostokes.github.io/weather-dashboard/">
+                                <img src="./assets/images/portfolio/weather-dashboard.png" alt="Weather Dashboard" class="card-img d-block w-100">
+                            </a>
+                        </figure>
                     </div>
-                </section>
+
+                </div>
+            </section>
 
 
-                <section class="row">
-                    <div class="title-box col-1">
-                        <h2 id="contact">Contact</h2>
-                    </div>
-                    <div class="contents-box col">
-                        <ul class="contact">
-                            <li><a href="mailto:rhonda@aerostokes.com">
-                                <img class="icon" src="./assets/images/icon_email.png" alt="email icon">
-                                rhonda@aerostokes.com
-                            </a></li>
-                            <li><a href="https://github.com/aerostokes">
-                                <img class="icon" src="./assets/images/icon_github.png" alt="github icon">
-                                github.com/aerostokes
-                            </a></li>
-                            <li><a href="https://www.linkedin.com/in/aerostokes/">
-                                <img class="icon" src="./assets/images/icon_linkedin.png" alt="linkedin icon">
-                                linkedin.com/in/aerostokes
-                            </a></li>
-                    </div>
-                </section>
+            <section class="row">
+                <div class="title-block col-1">
+                    <h2 id="contact">Contact</h2>
+                </div>
+                <div class="drawing-block col d-flex justify-content-center">
+                    <ul class="contact">
+                        <li><a href="mailto:rhonda@aerostokes.com">
+                            <img class="icon" src="./assets/images/icons/icon_email.png" alt="email icon">
+                            rhonda@aerostokes.com
+                        </a></li>
+                        <li><a href="https://github.com/aerostokes">
+                            <img class="icon" src="./assets/images/icons/icon_github.png" alt="github icon">
+                            github.com/aerostokes
+                        </a></li>
+                        <li><a href="https://www.linkedin.com/in/aerostokes/">
+                            <img class="icon" src="./assets/images/icons/icon_linkedin.png" alt="linkedin icon">
+                            linkedin.com/in/aerostokes
+                        </a></li>
+                </div>
+            </section>
 
 
-            </div>  
-        </main>
+        </div>  
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     <script src="./assets/js/script.js"></script>
