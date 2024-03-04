@@ -8,7 +8,7 @@
     --block-border-width: 3px;
     --text-primary-color: #E0DDCF;
     --text-secondary-color: #BB7CFF;
-    --text-secondary-conversion-filter: invert(55%) sepia(53%) saturate(2467%) hue-rotate(226deg) brightness(102%) contrast(101%);
+    --text-secondary-conversion-filter: invert(55%) sepia(53%) saturate(2467%) hue-rotate(226deg) brightness(102%) contrast(101%); /* curtesy of https://isotropic.co/tool/hex-color-to-css-filter/ */
     --brand-block-width: "auto";  /* set by script.js */
     --brand-block-height: "auto";  /* set by script.js */
     --nav-block-width: 8rem; /* modified by script.js */
