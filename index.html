@@ -3,102 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <title>Rhonda Stokes's Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <title>AeroStokes</title>
 </head>
 <body>
-    <header>
-        <h1>Rhonda Stokes</h1>
-        <ul class="navigation-bar">
-            <div class="menu-button">
-                <span class="material-symbols-outlined">menu</span>
-            </div>
-            <li><a href="#about-me">About Me</a></li>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#contact-me">Contact Me</a></li>
-            <li><span data-popup="Coming Soon!">Resume</span></li>
-        </ul>
-    </header>
-    <main>
-        <figure class="banner">
-            <span class="banner-caption-1">I used to build airplanes...</span>
-            <img src="./assets/images/max-chen-lud4OaUCP4Q-unsplash.png" alt="code banner">
-            <span class="banner-caption-2">...now I build code!</span>
-        </figure>
+    <div class="parallax">
+        <header>
+            <h1><span class="small-caps">Rhonda&nbsp;</span><span class="small-caps">Stokes</span></h1>
+            <nav class="navbar navbar-expand-lg w-100">
+                <div class="nav-container container">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                    <div class="collapse navbar-collapse navbar-nav justify-content-end align-items-end" id="navbarToggler">
+                        <div class="navbar-nav nav-group">
+                            <a class="nav-link" href="#bio">Bio</a>
+                            <a id="nav-cell-resizer" class="nav-link" href="#portfolio">Portfolio</a>
+                        </div>
+                        <div id="nav-group-resizer" class="navbar-nav nav-group">
+                            <a class="nav-link" href="#contact">Contact</a>
+                            <a class="nav-link" href="">Resume</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
 
-        <section>
-            <h2 id="about-me">About Me</h2>
-            <figure class="profile">
-                <img class="profile-pic" src="./assets/images/rhonda-stokes.JPG" alt="Profile Pic">
-                <p>My name is Rhonda Stokes and I am a (WIP) Full Stack Developer. In my previous professional incarnation, I graduated from the Georgia Institute of Technology with a BS in Aerospace Engineering and went on to work for The Boeing Company as a Structural Design Engineer for many years (it's rude to ask a lady how many). After building several CAD automation tools, I discovered that I am quite passionate about coding, and so decided to make a mid-career pivot.
-                <br><br>
-                I am soon-to-be graduate of the University of Washington's Full Stack Development Bootcamp, and will be looking for a position where I can pair my newly acquired coding skills with the exerience in design, product development, project management, and technical leadership that I have built over more than a decade in a technology (if not software) industry.</p>
-            </figure>
-            </section>
-            
-        <section>
-            <h2 id="work">Work</h2>
-            <div class="portfolio">
-                <figure class="top-work">
-                    <a href="https://hashtag-adulting.herokuapp.com/">
-                        <img src="./assets/images/hashtag-adulting.png" alt="Campricorn">
-                        <span class="work-caption">#Adulting</span>
-                    </a>
-                </figure>
-                <figure class="work">
-                    <a href="https://aerostokes.github.io/camping-starcharts/">
-                        <img src="./assets/images/campricorn.png" alt="Campricorn">
-                        <span class="work-caption">Campricorn</span>
-                    </a>
-                </figure>
-                <figure class="work">
-                    <a href="https://aerostokes.github.io/02-28-CSS-cheatsheet/">
-                        <img src="./assets/images/css-snippet-cheatsheet.png" alt="CSS Snippet Cheatsheet">
-                        <span class="work-caption">CSS Snippet Cheatsheet</span>
-                    </a>
-                </figure>
+        <main>
+            <div class="parallax-spacer"></div>
+            <div class="container">
 
-                <figure class="work">
-                    <a href="https://aerostokes.github.io/01-22-mini-project/">
-                        <img src="./assets/images/my-new-website.png">
-                        <span class="work-caption">My New Website</span>
-                    </a>
-                </figure>
+                <section class="row" id="bio">
+                    <div class="title-box col-1">
+                        <h2>Bio</h2>
+                    </div>
+                    <div class="contents-box col text-lowercase font-monospace">
+                        <img class="profile-pic" src="./assets/images/rhonda-stokes.JPG" alt="Profile Pic"> 
+                        <dl>
+                            <dt>Name:</dt>
+                            <dd>Rhonda Kaye Griffin Stokes</dd>
 
-                <figure class="work">
-                    <a href="https://aerostokes.github.io/prework-study-guide/">
-                        <img src="./assets/images/prework-study-guide.png">
-                        <span class="work-caption">Prework Study Guide</span>
-                    </a>
-                </figure>
+                            <dt>Pronouns:</dt>
+                            <dd>She/Her</dd>
 
-                <figure class="work">
-                    <a>
-                        <img src="./assets/images/einstein.png">
-                        <span class="soon-caption">More Coming Soon!</span>
-                    </a>
-                </figure>
-                <figure class="work">
-                    <a>
-                        <img src="./assets/images/ada.png">
-                        <span class="soon-caption">More Coming Soon!</span>
-                    </a>
-                </figure>
+                            <dt>Location: </dt>
+                            <dd>Seattle, WA</dd>
 
-            </div>
-        </section>
+                            <dt>Education: </dt>
+                            <dd style="display:flex">
+                                &#62;Full Stack Development Certification | University of Washington
+                                <br> 
+                                &#62;B.S. Aerospace Engineering | Georgia Institute of Technology
+                            </dd>
+                        
+                            <dt>Experience: </dt>
+                            <dd>Former Aerospace Design Engineer with a lifelong passion for automation and data analytics, 
+                                parlaying 15+ years technical experience and newly certified coding skills into a mid&#8209;career pivot to 
+                                software development
+                            </dd>   
+                        </dl>
+                    </div>                    
+                </section>
 
-        <section>
-            <h2 id="contact-me">Contact Me</h2>
-            <ul class="contact">
-                <li><a href="tel:4046428173">(404) 642-8173</a></li>
-                <li class="email"><a href="mailto:rhonda@aerostokes.com">rhonda@aerostokes.com</a></li>
-                <li><a href="https://github.com/aerostokes?tab=repositories">GitHub</a></li>
-                <li><a href="https://www.linkedin.com/in/rhonda-stokes-6b6590104/">LinkedIn</a></li>
-            </ul>
-        </section>
-    </main>
+
+                <section class="row" id="portfolio">
+                    <div class="title-box col-1">
+                        <h2>Portfolio</h2>
+                    </div>
+                    <div class="contents-box col" >
+
+                        <a class="card right-annotation row" href="https://hashtag-adulting.herokuapp.com/">
+                            <figure id="carousel1" class="carousel slide carousel-fade col-9" data-bs-ride="carousel" data-bs-interval="2500">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carousel1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carousel1" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carousel1" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="./assets/images/ada.png" alt="..." class="card-img d-block w-100">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="./assets/images/einstein.png" alt="..." class="card-img d-block w-100">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="./assets/images/campricorn.png" alt="..."class="card-img d-block w-100">
+                                    </div>
+                                </div>
+                            </figure>
+                            <div class="card-body col-3">
+                                <h3 class="card-title">#Adulting</h3>
+                                <p class="card-text">description
+                                    <br><i>Collab w/ </i>
+                                </p>
+                            </div>
+                        </a>
+                    
+                        <a class="card left-annotation row" href="https://hashtag-adulting.herokuapp.com/">
+                            <div class="card-body col-3">
+                                <h3 class="card-title">#Adulting</h3>
+                                <p class="card-text">description
+                                    <br><i>Collab w/ </i>
+                                </p>
+                            </div>
+                            <figure id="carousel2" class="carousel slide carousel-fade col-9" data-bs-ride="carousel" data-bs-interval="3500">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carousel2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carousel2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carousel2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="./assets/images/ada.png" alt="..." class="card-img d-block w-100">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="./assets/images/einstein.png" alt="..." class="card-img d-block w-100">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="./assets/images/campricorn.png" alt="..."class="card-img d-block w-100">
+                                    </div>
+                                </div>
+                            </figure>
+                        </a>
+                            
+                        <a class="card right-annotation row" href="https://hashtag-adulting.herokuapp.com/">
+                            <figure class="col-9">
+                                <img src="./assets/images/hashtag-adulting.png" alt="#adulting" class="card-img d-block w-100">
+                            </figure>
+                            <div class="card-body col-3">
+                                <h3 class="card-title">#Adulting</h3>
+                                <p class="card-text">description
+                                    <br><i>Collab w/ </i>
+                                </p>
+                            </div>
+                        </a>
+
+                        <a class="card left-annotation row" href="https://aerostokes.github.io/camping-starcharts/">
+                            <div class="card-body col-3">
+                                <h3 class="card-title">Campricorn</h3>
+                                <p class="card-text">description
+                                    <br><i>Collab w/ </i>
+                                </p>
+                            </div>
+                            <figure class="col-9">
+                                <img src="./assets/images/campricorn.png" alt="Campricorn" class="card-img d-block w-100">
+                            </figure>
+                        </a>
+
+                    </div>
+                </section>
+
+
+                <section class="row">
+                    <div class="title-box col-1">
+                        <h2 id="contact">Contact</h2>
+                    </div>
+                    <div class="contents-box col">
+                        <ul class="contact">
+                            <li><a href="tel:4046428173">(404) 642-8173</a></li>
+                            <li class="email"><a href="mailto:rhonda@aerostokes.com">rhonda@aerostokes.com</a></li>
+                            <li><a href="https://github.com/aerostokes?tab=repositories">github.com/aerostokes</a></li>
+                            <li><a href="https://www.linkedin.com/in/aerostokes/">linkedin.com/in/aerostokes</a></li>
+                            <li><a href="">Resume</a></li>
+                    </div>
+                </section>
+
+
+            </div>  
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="./assets/js/script.js"></script>
+
 </body>
 </html>
