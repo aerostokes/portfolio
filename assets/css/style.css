@@ -1,45 +1,54 @@
 :root {
-    --background-main-color: #002C52;
-    --background-main-transparent: rgba(0, 44, 82, 0.88);
-    --background-grid-color: #004C8F;
-    --title-block-color: #EEF0F2;
-    --text-main-color: #E0DDCF;
-    --text-emphasis-color: #BB7CFF;
-    --text-emphasis-filter: invert(55%) sepia(53%) saturate(2467%) hue-rotate(226deg) brightness(102%) contrast(101%);
-    --grid-size-px: 24px;  /* modified by script.js */
-    
-    --brand-block-height: "auto";  /* set by script.js */
+    --background-primary-color: #002C52;
+    --background-gridline-color: #004C8F;
+    --grid-baseline-size-px: 24px; 
+    --grid-adjusted-size-px: var(--grid-baseline-size-px);  /* modified by script.js */
+    --frosted-backdrop-color: rgba(0, 33, 61, 0.85);
+    --block-color: #EEF0F2;
+    --block-border-width: 3px;
+    --text-primary-color: #E0DDCF;
+    --text-secondary-color: #BB7CFF;
+    --text-secondary-conversion-filter: invert(55%) sepia(53%) saturate(2467%) hue-rotate(226deg) brightness(102%) contrast(101%);
     --brand-block-width: "auto";  /* set by script.js */
-    
+    --brand-block-height: "auto";  /* set by script.js */
     --nav-block-width: 8rem; /* modified by script.js */
     --nav-block-height: 2rem; /* modified by script.js */
     --nav-toggled-height: calc(4 * var(--nav-block-height)); /* sized for 4 nav-links */
-
-    --banner-width-ref: 1400; /* corresponds with media query size for max banner */
+    --banner-width-ref: 1400; /* corresponds with media query size for max banner width */
     --banner-height-ref: 280;
     --banner-header-clearance-ref: 90;
-    --banner-offset-y: 0px;   /* set by script.js */
+    --banner-offset-y: 0px;   /* modified by script.js */
     --banner-view-spacer: calc(var(--banner-height-ref) * 1px + var(--banner-offset-y));  
-    --card-title-font-size: 1.75rem;
     --card-figure-offset-y: 60px;
     --card-figure-gutter-x: 40px;
-    --card-img-border-width: 5px;
-    --dot-radius: 10px;
-    --leader-height: calc(var(--card-figure-offset-y) - 2/3 * var(--card-title-font-size) + 1/2 * var(--card-img-border-width));
-    --leader-width: 50px;
-    --reference-length: 25px;
+    --card-img-border-width: 3px;
+    --card-title-font-size: 1.75rem;
+    --annotation-dot-radius: 10px;
+    --annotation-leader-length-x: 50px;
+    --annotation-leader-length-y: calc(var(--card-figure-offset-y) - 2/3 * var(--card-title-font-size) + 1/2 * var(--card-img-border-width));
+    --annotation-ref-line-length: 25px;
+    --link-source-size: 1.75rem;
 }
 
+
 body {
-    font-family: Georgia, Helvetica, sans-serif;
-    color: var(--text-main-color);
-    background-color: var(--background-main-color);
+    background-color: var(--background-primary-color);
     background-image: 
-        linear-gradient(to right, var(--background-grid-color) 1px, transparent -10px),
-        linear-gradient(to bottom, var(--background-grid-color) 1px, transparent 1px);
-    background-size: var(--grid-size-px) var(--grid-size-px);
-    background-attachment: fixed;
+        linear-gradient(to right, var(--background-gridline-color) 1px, transparent -10px),
+        linear-gradient(to bottom, var(--background-gridline-color) 1px, transparent 1px);
+        background-attachment: fixed;
+        background-size: var(--grid-adjusted-size-px) var(--grid-adjusted-size-px);
     background-repeat: repeat;
+    color: var(--text-primary-color);
+    font-family: "Raleway", Optima, Calibri, sans-serif;
+}
+
+header, h1, h2, h3 {
+    font-family: "Playfair Display", Georgia, serif;
+}
+
+.bio-list, .contact-list {
+    font-family: "Fira Code", Courier, monospace;
 }
 
 header {
@@ -51,28 +60,29 @@ header {
     position: absolute;
     left: 0px;
     top: 0px; 
-    max-width: calc(50% - var(--grid-size-px));
     width: var(--brand-block-width);
+    max-width: calc(50% - var(--grid-adjusted-size-px));
     height: var(--brand-block-height);
+    border-width: 0px var(--block-border-width) var(--block-border-width) 0px;
+    border-style: solid;
+    border-color: var(--block-color);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: flex-end;
-    border-width: 0px 3px 3px 0px;
-    border-style: solid;
-    border-color: var(--title-block-color);
+    justify-content: center;
 }
 
 h1 {
-    padding: 10px 20px;
+    margin: 10px 20px;
     font-size: 2.5rem;
     line-height: 1;
-    color: var(--title-block-color);
+    text-align: center;
+    color: var(--block-color);
     text-shadow: 
-        2px 2px var(--background-main-color), 
-        -2px 2px var(--background-main-color), 
-        2px -2px var(--background-main-color), 
-        -2px -2px var(--background-main-color);
+        2px 2px var(--background-primary-color), 
+        -2px 2px var(--background-primary-color), 
+        2px -2px var(--background-primary-color), 
+        -2px -2px var(--background-primary-color);
 }
 
 .small-caps {
@@ -84,13 +94,13 @@ h1 {
 }
 
 .navbar {
+    z-index: 100;
     height: 0px;
     width: 100%;
     padding: 0px;
+    background: inherit;
     justify-content: end;
     align-items: flex-start;
-    z-index: 100;
-    background: inherit;
 }
 
 #nav-block {
@@ -116,32 +126,32 @@ h1 {
     height: var(--nav-block-height);
     flex: 1 1 auto!important;
     padding: 8px 3px;
+    border-width: 0px 0px var(--block-border-width) var(--block-border-width);
+    border-radius: 0px;
+    border-style: solid;
+    border-color: var(--block-color);
+    text-transform: uppercase;
+    text-decoration: underline;
+    color: var(--block-color);
+    text-shadow: 
+        1px 1px var(--background-primary-color), 
+        -1px 1px var(--background-primary-color), 
+        1px -1px var(--background-primary-color), 
+        -1px -1px var(--background-primary-color);
     display: flex;
     align-items: center;
     justify-content: center;
-    text-transform: uppercase;
-    text-decoration: underline;
-    color: var(--title-block-color);
-    text-shadow: 
-        1px 1px var(--background-main-color), 
-        -1px 1px var(--background-main-color), 
-        1px -1px var(--background-main-color), 
-        -1px -1px var(--background-main-color);
-    border-radius: 0px;
-    border-width: 0px 0px 3px 3px;
-    border-style: solid;
-    border-color: var(--title-block-color);
 }
 .navbar-toggler:focus {
     box-shadow: none;
 }
 .nav-link:hover {
-    color: var(--text-emphasis-color);
+    color: var(--text-secondary-color);
 }
 
 .link-unstyled {
-    color: inherit!important;
     text-decoration: inherit!important;
+    color: inherit!important;
 }
 
 .material-symbols-outlined {
@@ -150,94 +160,91 @@ h1 {
 }
 
 
-.container-fluid {
-    position: relative;
-}
 main {
+    padding: var(--banner-view-spacer) 0px 0px 0px !important;
     background-image: url("../images/aerostokes_banner.png");
     background-position: center top var(--banner-offset-y);
-    background-repeat: no-repeat;
-    background-size: calc(1px * var(--banner-width-ref)) calc(1px * var(--banner-height-ref));
     background-attachment: fixed;
-    padding-top: var(--banner-view-spacer);
+    background-size: calc(1px * var(--banner-width-ref)) calc(1px * var(--banner-height-ref));
+    background-repeat: no-repeat;
 }
 
-
-.container-fluid, section {
-    background: inherit;
+section {
     position: relative;
     top: 0px;
-    right: 0px;
-    left: 0px;
     bottom: 0px;
-    z-index: 0;
+    left: 0px;
+    right: 0px;
     overflow: hidden;
+    z-index: 0;
+    border: 3px solid var(--block-color);
+    margin: 0px calc(1.5 * var(--grid-adjusted-size-px)) calc(1.5 * var(--grid-adjusted-size-px)) calc(1.5 * var(--grid-adjusted-size-px)) !important;
+    background: inherit;
 }
-
 section::before {
     content: "";
     position: absolute;
-    top: -5%;
-    left: -5%;
-    height: 110%;
-    width: 110%;
-    background: inherit;
-    box-shadow: inset 0 0 0 55vw var(--background-main-transparent);
-    filter: blur(3px);
+    top: -3px;
+    bottom: -3px;
+    left: -3px;
+    right: -3px;
     z-index: -2;
+    background: inherit;
+    box-shadow: inset 0 0 0 55vw var(--frosted-backdrop-color);
+    filter: blur(3px);
 }
 section::after {
     content: "";
     position: absolute;
     top: 0px;
-    right: 0px;
-    left: 0px;
     bottom: 0px;
-    height: 100%;
-    width: 100%;
+    left: 0px;
+    right: 0px;
+    z-index: -1;
     background-image: 
-        linear-gradient(to right, var(--background-grid-color) 1px, transparent -10px),
-        linear-gradient(to bottom, var(--background-grid-color) 1px, transparent 1px);
-    background-size: var(--grid-size-px) var(--grid-size-px);
+        linear-gradient(to right, var(--background-gridline-color) 1px, transparent -10px),
+        linear-gradient(to bottom, var(--background-gridline-color) 1px, transparent 1px);
     background-attachment: fixed;
     background-repeat: repeat;
-    z-index: -1;
-}
-
-section {
-    margin: 0px 35px 35px 35px !important;
-    border: 3px solid var(--title-block-color);
+    background-size: var(--grid-adjusted-size-px) var(--grid-adjusted-size-px);
 }
 
 .title-block {
-    padding: 0px;
-    border-width: 0px 5px 0px 0px;
-    border-color: var(--title-block-color);
+    border-width: 0px calc(2px + var(--block-border-width)) 0px 0px;
+    border-color: var(--block-color);
     border-style: solid;
+    padding: 0px;
 }
 
 h2 {
-    writing-mode: vertical-lr;
-    transform: rotate(180deg);
     position: sticky;
     top: 30px;
     margin: 30px auto;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
     font-size: 52px;
     line-height: 1;
     text-transform: uppercase;
-    color: var(--title-block-color);
+    color: var(--block-color);
     text-shadow: 
-        2px 2px var(--background-main-color), 
-        -2px 2px var(--background-main-color), 
-        2px -2px var(--background-main-color), 
-        -2px -2px var(--background-main-color);
+        2px 2px var(--background-primary-color), 
+        -2px 2px var(--background-primary-color), 
+        2px -2px var(--background-primary-color), 
+        -2px -2px var(--background-primary-color);
 }
 
-.drawing-block {
-    color: var(--text-main-color);
+.content-block {
     padding: 30px;
+    color: var(--text-primary-color);
 }
 
+.profile-pic {
+    float: left;
+    height: 120px;
+    width: auto;
+    margin: 10px 10px 0px 0px;
+    clip-path: ellipse(45% 50% at 50% 50%);
+}
 
 dt {
     float: left;
@@ -246,27 +253,180 @@ dt {
 }
 
 dd {
-    color: var(--text-emphasis-color);
+    color: var(--text-secondary-color);
     text-shadow: 
-        1px 1px var(--background-main-color), 
-        -1px 1px var(--background-main-color), 
-        1px -1px var(--background-main-color), 
-        -1px -1px var(--background-main-color);
-}
-
-.profile-pic {
-    margin: 5px 10px 0px 10px;
-    height: 120px;
-    width: auto;
-    clip-path: ellipse(45% 50% at 50% 50%);
-    float: left;
+        1px 1px var(--background-primary-color), 
+        -1px 1px var(--background-primary-color), 
+        1px -1px var(--background-primary-color), 
+        -1px -1px var(--background-primary-color);
 }
 
 .card {
+    padding: 25px 10px;
+    border: none;
+    background-color: transparent;
     flex-direction: row;
     align-items: flex-start;
-    background-color: transparent;
-    padding: 25px 10px;
+}
+.card.right-annotation {
+    flex-direction: row-reverse;
+}
+.card.left-annotation {
+    flex-direction: row;
+}
+
+.card-body {
+    position: relative;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 20%;
+    line-height: 1.2;
+}
+.right-annotation .card-body {
+    border-left: var(--card-img-border-width) solid var(--text-secondary-color);
+    padding: 0px 0px 5px 20px;
+}
+.right-annotation .card-body::before {
+    content:'';
+    position:absolute;
+    left: calc(0px - var(--annotation-dot-radius) - var(--annotation-leader-length-x) - var(--annotation-ref-line-length));
+    right: 100%;
+    top: calc(2/3 * var(--card-title-font-size));
+    z-index:10;
+    height: calc(var(--annotation-dot-radius) + var(--annotation-leader-length-y));
+    background:
+        /*circle*/
+        radial-gradient(var(--text-secondary-color) 56%, transparent 50%) 
+            left bottom / calc(2*var(--annotation-dot-radius)) calc(2*var(--annotation-dot-radius)), 
+        /*leader line*/
+        linear-gradient(to bottom right, transparent calc(50% - 2px), var(--text-secondary-color) calc(50% - 1px), var(--text-secondary-color) calc(50% + 1px), transparent calc(50% + 2px)) 
+            var(--annotation-dot-radius) 0px / var(--annotation-leader-length-x) var(--annotation-leader-length-y),
+        /*reference line*/
+        linear-gradient(var(--text-secondary-color), var(--text-secondary-color)) 
+            right top / var(--annotation-ref-line-length) 2px;
+    background-repeat:no-repeat;
+}
+.left-annotation .card-body {
+    border-right: var(--card-img-border-width) solid var(--text-secondary-color);
+    padding: 0px 20px 5px 0px;
+    direction: rtl;
+}
+.left-annotation .card-body::after {
+    content:'';
+    position:absolute;
+    left: 100%;
+    right: calc(0px - var(--annotation-dot-radius) - var(--annotation-leader-length-x) - var(--annotation-ref-line-length));
+    top: calc(2/3 * var(--card-title-font-size));
+    z-index: 10;
+    height: calc(var(--annotation-dot-radius) + var(--annotation-leader-length-y));
+    background:
+        /*circle*/
+        radial-gradient(var(--text-secondary-color) 56%, transparent 50%) 
+            right bottom / calc(2*var(--annotation-dot-radius)) calc(2*var(--annotation-dot-radius)), 
+        /*leader line*/
+        linear-gradient(to bottom left, transparent calc(50% - 2px), var(--text-secondary-color) calc(50% - 1px), var(--text-secondary-color) calc(50% + 1px), transparent calc(50% + 2px)) 
+            var(--annotation-ref-line-length) 0px / var(--annotation-leader-length-x) var(--annotation-leader-length-y),
+        /*reference line*/
+        linear-gradient(var(--text-secondary-color), var(--text-secondary-color)) 
+            left top / var(--annotation-ref-line-length) 2px;
+    background-repeat:no-repeat;
+}
+
+.card-title {
+    font-size: var(--card-title-font-size);
+    text-transform: uppercase;
+    color: var(--text-secondary-color);
+    text-shadow: 
+        2px 2px var(--background-primary-color), 
+        -2px 2px var(--background-primary-color), 
+        2px -2px var(--background-primary-color), 
+        -2px -2px var(--background-primary-color);
+}
+.card:hover .card-title {
+    text-decoration-line: underline;
+    text-decoration-thickness: var(--card-img-border-width);
+    text-underline-offset: 0.15rem!important;
+}
+
+.card-text, .card-footnote, .card-footnote a {
+    /* font-family: monospace; */
+    color: var(--text-primary-color);
+}
+
+.card-footnote {
+    margin: 0.5rem 0px;
+    opacity: 80%;
+    font-size: 80%;
+    font-style: italic;
+}
+
+.link-source {
+    position: relative;
+    margin: 2px;
+    height: var(--link-source-size);
+    display: inline-block;
+    font-size: calc(0.6 * var(--link-source-size));
+    line-height: var(--link-source-size);
+    white-space: nowrap;
+    color: black;
+    text-decoration: none;
+}
+.link-source::after, .link-source::before {
+    content: "";
+    opacity: 0;
+}
+.right-annotation .link-source:hover::before {
+    content: " ";
+    position: absolute;
+    margin-top: -5px;
+    top: 50%;
+    left: 100%;
+    opacity: 1;
+    transition: opacity 0.5s 0.5s;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent var(--text-secondary-color) transparent transparent;
+}
+.right-annotation .link-source:hover::after {
+    content: "source code";
+    position: absolute;
+    margin-left: 10px;
+    left: 100%;
+    padding: 0px 15px;
+    opacity: 1;
+    transition: opacity 0.5s 0.5s;
+    border-radius: 5px;
+    background-color: var(--text-secondary-color);
+}
+.left-annotation .link-source:hover::before {
+    content: " ";
+    position: absolute;
+    margin-top: -5px;
+    top: 50%;
+    right: 100%;
+    opacity: 1;
+    transition: opacity 0.5s 0.5s;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent var(--text-secondary-color);
+}
+.left-annotation .link-source:hover::after {
+    content: "source code";
+    position: absolute;
+    margin-right: 10px;
+    right: 100%;
+    padding: 0px 15px;
+    opacity: 1;
+    transition: opacity 0.5s 0.5s;
+    border-radius: 5px;
+    background-color: var(--text-secondary-color);
+}
+
+.link-source .icon {
+    vertical-align: baseline;
+    height: var(--link-source-size);
+    width: var(--link-source-size);
+    filter: var(--text-secondary-conversion-filter);
 }
 
 .right-annotation :is(figure, .carousel-indicators) {
@@ -277,255 +437,104 @@ dd {
     padding: var(--card-figure-offset-y) calc(2 * var(--card-img-border-width)) 0px var(--card-figure-gutter-x);
 }
 
-
 .card-img {
-    border: var(--card-img-border-width) solid var(--title-block-color);
-    filter: contrast(75%);
+    box-sizing: content-box;
     aspect-ratio: 16/10;
     object-fit: contain;
-    box-sizing: content-box;
+    border: var(--card-img-border-width) solid var(--block-color);
+    border-radius: 8px;
+    filter: contrast(75%);
 }
 .card:hover .card-img {
-    box-shadow: 0 0 15px var(--title-block-color);
+    box-shadow: 0 0 15px var(--block-color);
     filter: contrast(100%);
 }
 
-.right-annotation .card-body {
-    padding: 0px 0px 10px 20px;
-    border-left:3px solid var(--text-emphasis-color);
-    display:inline-block;
-    position:relative;
-}
-.right-annotation .card-body::before {
-    content:'';
-    position:absolute;
-    z-index:10;
-    left: calc(0px - var(--dot-radius) - var(--leader-width) - var(--reference-length));
-    right:100%;
-    height:calc(var(--dot-radius) + var(--leader-height));
-    top: calc(2/3 * var(--card-title-font-size));
-    background:
-        /*circle*/
-        radial-gradient(var(--text-emphasis-color) 56%, transparent 50%) 
-            left bottom / calc(2*var(--dot-radius)) calc(2*var(--dot-radius)), 
-        /*leader line*/
-        linear-gradient(to bottom right, transparent calc(50% - 2px), var(--text-emphasis-color) calc(50% - 1px), var(--text-emphasis-color) calc(50% + 1px), transparent calc(50% + 2px)) 
-            var(--dot-radius) 0px / var(--leader-width) var(--leader-height),
-        /*reference line*/
-        linear-gradient(var(--text-emphasis-color), var(--text-emphasis-color)) 
-            right top / var(--reference-length) 2px;
-    background-repeat:no-repeat;
-}
-
-.left-annotation .card-body {
-    padding: 0px 20px 10px 0px;
-    border-right:3px solid var(--text-emphasis-color);
-    display:inline-block;
-    position:relative;
-    direction: rtl;
-}
-.left-annotation .card-body::after {
-    content:'';
-    position:absolute;
-    z-index:10;
-    right: calc(0px - var(--dot-radius) - var(--leader-width) - var(--reference-length));
-    left:100%;
-    height:calc(var(--dot-radius) + var(--leader-height));
-    top: calc(2/3 * var(--card-title-font-size));
-    background:
-        /*circle*/
-        radial-gradient(var(--text-emphasis-color) 56%, transparent 50%) 
-            right bottom / calc(2*var(--dot-radius)) calc(2*var(--dot-radius)), 
-        /*leader line*/
-        linear-gradient(to bottom left, transparent calc(50% - 2px), var(--text-emphasis-color) calc(50% - 1px), var(--text-emphasis-color) calc(50% + 1px), transparent calc(50% + 2px)) 
-            var(--reference-length) 0px / var(--leader-width) var(--leader-height),
-        /*reference line*/
-        linear-gradient(var(--text-emphasis-color), var(--text-emphasis-color)) 
-            left top / var(--reference-length) 2px;
-    background-repeat:no-repeat;
-}
-
-.card {
-    border: none;
-}
-
-.card-body {
-    flex-basis: 20%;
-    flex-grow: 0;
-    flex-shrink: 0;
-}
-
-.card-title {
-    font-size: var(--card-title-font-size);
-    color: var(--text-emphasis-color);
-    text-shadow: 
-        2px 2px var(--background-main-color), 
-        -2px 2px var(--background-main-color), 
-        2px -2px var(--background-main-color), 
-        -2px -2px var(--background-main-color);
-    text-transform: uppercase;
-}
-
-.card:hover .card-title {
-    text-decoration: underline;
-}
-
-.card-text, .card-footnote, .card-footnote a {
-    color: var(--text-main-color);
-    font-family: monospace;
-}
-
-.card-footnote {
-    font-style: italic;
-    font-size: 80%;
-    opacity: 80%;
-    margin: 0.5rem 0px 0px 0px;
-}
-
-.contact {
+.contact-list {
+    margin: 0px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    height: 100%;
     align-items: start;
-    margin: 0px;
     list-style: none;
-
 }
 
-.contact li {
+.contact-list li {
     margin: 10px 20px;
 }
 
-.contact a {
+.contact-list a {
     display: flex;
     align-items: center;
     font-size: 1.25rem; 
-    color: var(--text-emphasis-color);
     text-decoration: none;
+    color: var(--text-secondary-color);
 }
 
-.contact .icon {
+.contact-list .icon {
     margin-right: 4px;
-    filter: var(--text-emphasis-filter);
     height: 1.5rem;
     width: 1.5rem;
+    filter: var(--text-secondary-conversion-filter);
 }
-
-.link-source {
-    position: relative;
-    display: inline-block;
-    margin: 0.5rem 0px 0px 0px;
-}
-.link-source::after, .link-source::before {
-    opacity: 0;
-    content: "";
-}
-.link-source:hover::before, .link-source:hover::after {
-    position: absolute;
-    opacity: 1;
-    left: 100%;
-    transition: opacity 0.5s 0.5s;
-}
-.link-source:hover::before {
-    content: " ";
-    top: 50%;
-    margin-top: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent var(--text-emphasis-color) transparent transparent;
-    z-index: 3;
-}
-.link-source:hover::after {
-    content: "source code";
-    margin-left: 10px;
-    font-size: 0.8rem;
-    top: 0.2rem;
-    height: 1.6rem;
-    line-height: 1.6rem;
-    width: 6rem;
-    text-align: center;
-    text-decoration: none;
-    color: black;
-    background-color: var(--text-emphasis-color);
-    border-radius: 6px;
-    z-index: 2;
-}
-
-.link-source .icon {
-    height: var(--card-title-font-size);
-    width: var(--card-title-font-size);
-    filter: var(--text-emphasis-filter);
-}
-
 
 
 /* Screen size adjustments */
 @media screen and (max-width: 1399px) {
-    main {
-        background-size: contain;
-    }
     :root {
         --banner-view-spacer: calc(100vw / var(--banner-width-ref) * var(--banner-height-ref) + var(--banner-offset-y));
+    }
+    main {
+        background-size: contain;
     }
 }
 
 @media screen and (max-width: 1199px) {
+    :root {
+        --card-figure-offset-y: 50px;
+        --card-figure-gutter-x: 30px;
+        --card-title-font-size: calc(1.3rem + .6vw);
+        --annotation-dot-radius: 10px;
+        --annotation-leader-length-x: 40px;
+        --annotation-ref-line-length: 22px;
+    }
     h1 {
         font-size: calc(2.0rem + 3.8 * (1vw - 9.9px));
     }
     h2 {
-        top: 30px;
-        margin: 30px auto 30px auto;
         font-size: 42px;
-    }
-    .drawing-block {
-        padding: 30px;
-    }
-    :root {
-        --card-title-font-size: 1.5rem;
-        --card-figure-offset-y: 50px;
-        --card-figure-gutter-x: 30px;
-        --dot-radius: 10px;
-        --leader-width: 40px;
-        --reference-length: 22px;
-    }
-    .card-body {
-        flex-basis: 20%;
     }
 }
 
 @media screen and (max-width: 991px) {
+    :root {
+        --card-figure-offset-y: 45px;
+        --card-figure-gutter-x: 25px;
+        --card-title-font-size: calc(1.1rem + .6vw);
+        --annotation-ref-line-length: 18px;
+    }
     h1 {
         font-size: calc(1.5rem + 3.6 * (1vw - 7.7px));
     }
-
     section {
         flex-direction: column;
+        /* margin: 0px var(--grid-adjusted-size-px) calc(1.5 * var(--grid-adjusted-size-px)) var(--grid-adjusted-size-px) !important; */
     }
     .title-block {
-        width: auto;
         align-self: flex-start;
-        border-width: 0px 3px 3px 0px;
+        width: auto;
+        border-width: 0px calc(1px + var(--block-border-width)) calc(2px + var(--block-border-width)) 0px;
     }
     h2 {
+        position: static;
+        margin: 12px 24px;
         writing-mode: horizontal-tb;
         transform: none;
-        margin: auto 20px;
-        position: static;
-        font-size: 32px;
-        margin: 10px 20px;
+        font-size: calc(1.325rem + .9vw);
     }
-    .drawing-block {
-        padding: 5px 25px 15px 25px;
-    }
-    :root {
-        --card-title-font-size: 1.3rem;
-        --card-figure-offset-y: 50px;
-        --card-figure-gutter-x: 30px;
-        --dot-radius: 10px;
-        --leader-width: 40px;
-        --reference-length: 22px;
+    .content-block {
+        padding: 5px 20px 15px 20px;
     }
     .right-annotation .card-body {
         padding-left: 12px;
@@ -533,23 +542,60 @@ dd {
     .left-annotation .card-body {
         padding-right: 12px;
     }
+    .contact-list a {
+        font-size: 1.15rem;
+    }
+
 }
 
 @media screen and (max-width: 767px) {
+    :root {
+        --grid-baseline-size-px: 20px;
+    }
     h1 {
         font-size: calc(1.0rem + 4.0 * (1vw - 5.7px));
     }
+    .content-block {
+        padding: 5px 20px 15px 20px;
+    }
     .profile-pic {
         height: 90px;
-    }
-    section {
-        margin: 0px 20px 30px 20px !important;
     }
 
 }
 
 @media screen and (max-width: 575px) {
+    :root {
+        --card-title-font-size: 1.2rem;
+        --card-figure-offset-y: 0px;
+        --card-figure-gutter-x: 0px;
+        --link-source-size: 1.2rem;
+    }
     h1 {
+        margin: 6px 10px;
         font-size: 1.0rem;
+    }
+    .navbar-toggler, .nav-link {
+        padding: 6px 3px;
+    }
+    section {
+        margin: 0px var(--grid-adjusted-size-px) calc(1.5 * var(--grid-adjusted-size-px)) var(--grid-adjusted-size-px) !important;
+    }
+    dd.d-flex {
+        display: block!important;
+    }
+    .card {
+        flex-direction: column !important;
+    }
+    .card-body {
+        width: 100%;
+        border: none!important;
+        padding: 0px 0px 5px 0px !important;
+    }
+    .card-body::before, .card-body::after {
+        display: none;
+    }
+    .card-title {
+        font-weight: bold;
     }
 }
