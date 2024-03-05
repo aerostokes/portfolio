@@ -21,6 +21,7 @@ Visit the [deployed site](https://aerostokes.github.io/portfolio/).
 ## License
 
 Copyright (c) 2024 Rhonda Stokes 
+
 All Rights Reserved
 
 ## Tests

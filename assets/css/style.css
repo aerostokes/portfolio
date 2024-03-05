@@ -3,7 +3,8 @@
     --background-gridline-color: #004C8F;
     --grid-baseline-size-px: 24px; 
     --grid-adjusted-size-px: var(--grid-baseline-size-px);  /* modified by script.js */
-    --frosted-backdrop-color: rgba(0, 33, 61, 0.85);
+    --frosted-backdrop-color: rgba(0, 33, 61, 0.9);
+    --frosted-gridline-color: rgba(0, 65, 122, 0.5);
     --block-color: #EEF0F2;
     --block-border-width: 3px;
     --text-primary-color: #E0DDCF;
@@ -11,7 +12,7 @@
     --text-secondary-conversion-filter: invert(55%) sepia(53%) saturate(2467%) hue-rotate(226deg) brightness(102%) contrast(101%); /* curtesy of https://isotropic.co/tool/hex-color-to-css-filter/ */
     --brand-block-width: "auto";  /* set by script.js */
     --brand-block-height: "auto";  /* set by script.js */
-    --nav-block-width: 8rem; /* modified by script.js */
+    --nav-block-width: auto; /* modified by script.js */
     --nav-block-height: 2rem; /* modified by script.js */
     --nav-toggled-height: calc(4 * var(--nav-block-height)); /* sized for 4 nav-links */
     --banner-width-ref: 1400; /* corresponds with media query size for max banner width */
@@ -32,15 +33,27 @@
 
 
 body {
+    position: relative;
     background-color: var(--background-primary-color);
+    color: var(--text-primary-color);
+    font-family: "Raleway", Optima, Calibri, sans-serif;
+}
+body::before {
+    content: "";
+    z-index: -3;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
     background-image: 
         linear-gradient(to right, var(--background-gridline-color) 1px, transparent -10px),
         linear-gradient(to bottom, var(--background-gridline-color) 1px, transparent 1px);
-        background-attachment: fixed;
-        background-size: var(--grid-adjusted-size-px) var(--grid-adjusted-size-px);
+    background-position: left 0px top 0px;
+    background-position-x: 0px;
+    background-position-y: 0px;
+    background-size: var(--grid-adjusted-size-px) var(--grid-adjusted-size-px);
     background-repeat: repeat;
-    color: var(--text-primary-color);
-    font-family: "Raleway", Optima, Calibri, sans-serif;
 }
 
 header, h1, h2, h3 {
@@ -98,7 +111,6 @@ h1 {
     height: 0px;
     width: 100%;
     padding: 0px;
-    background: inherit;
     justify-content: end;
     align-items: flex-start;
 }
@@ -107,7 +119,12 @@ h1 {
     margin: 0px;
     width: var(--nav-block-width);
     padding: 0px;
-    background: inherit;
+    background-color: var(--background-primary-color);
+    background-image: 
+        linear-gradient(to right, var(--background-gridline-color) 1px, transparent -10px),
+        linear-gradient(to bottom, var(--background-gridline-color) 1px, transparent 1px);
+    background-size: var(--grid-adjusted-size-px) var(--grid-adjusted-size-px);
+    background-repeat: repeat;
     transition: transform 1s cubic-bezier(0.1, 0.3, 0.6, 1.0);
 }
 #nav-block.active {
@@ -124,7 +141,7 @@ h1 {
 
 .navbar-toggler, .nav-link {
     height: var(--nav-block-height);
-    flex: 1 1 auto!important;
+    flex: 1 1 auto !important;
     padding: 8px 3px;
     border-width: 0px 0px var(--block-border-width) var(--block-border-width);
     border-radius: 0px;
@@ -150,8 +167,8 @@ h1 {
 }
 
 .link-unstyled {
-    text-decoration: inherit!important;
-    color: inherit!important;
+    text-decoration: inherit !important;
+    color: inherit !important;
 }
 
 .material-symbols-outlined {
@@ -161,10 +178,28 @@ h1 {
 
 
 main {
-    padding: var(--banner-view-spacer) 0px 0px 0px !important;
+    position: relative;
+    margin: var(--banner-view-spacer) 0px 0px 0px !important;
+    padding: 0px !important;
+    background-image: 
+        linear-gradient(to right, var(--frosted-gridline-color) 1px, transparent -10px),
+        linear-gradient(to bottom, var(--frosted-gridline-color) 1px, transparent 1px);
+    background-position: left 0px top calc(0px - var(--banner-view-spacer));
+    background-position-x: 0px;
+    background-position-y: calc(0px - var(--banner-view-spacer));
+    background-size: var(--grid-adjusted-size-px) var(--grid-adjusted-size-px);
+    background-repeat: repeat;
+}
+main::before {
+    content: "";
+    z-index: -2;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
     background-image: url("../images/aerostokes_banner.png");
     background-position: center top var(--banner-offset-y);
-    background-attachment: fixed;
     background-size: calc(1px * var(--banner-width-ref)) calc(1px * var(--banner-height-ref));
     background-repeat: no-repeat;
 }
@@ -175,38 +210,22 @@ section {
     bottom: 0px;
     left: 0px;
     right: 0px;
-    overflow: hidden;
-    z-index: 0;
+    overflow: clip;
     border: 3px solid var(--block-color);
-    margin: 0px calc(1.5 * var(--grid-adjusted-size-px)) calc(1.5 * var(--grid-adjusted-size-px)) calc(1.5 * var(--grid-adjusted-size-px)) !important;
-    background: inherit;
+    margin-top: 0px !important;
+    margin-right: calc(1.5 * var(--grid-adjusted-size-px)) !important;
+    margin-bottom: calc(2 * var(--grid-adjusted-size-px)) !important;
+    margin-left: calc(1.5 * var(--grid-adjusted-size-px)) !important;
 }
 section::before {
     content: "";
+    z-index: -1;
     position: absolute;
-    top: -3px;
+    top: -30px;
     bottom: -3px;
     left: -3px;
     right: -3px;
-    z-index: -2;
-    background: inherit;
     box-shadow: inset 0 0 0 55vw var(--frosted-backdrop-color);
-    filter: blur(3px);
-}
-section::after {
-    content: "";
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    z-index: -1;
-    background-image: 
-        linear-gradient(to right, var(--background-gridline-color) 1px, transparent -10px),
-        linear-gradient(to bottom, var(--background-gridline-color) 1px, transparent 1px);
-    background-attachment: fixed;
-    background-repeat: repeat;
-    background-size: var(--grid-adjusted-size-px) var(--grid-adjusted-size-px);
 }
 
 .title-block {
@@ -288,11 +307,11 @@ dd {
 }
 .right-annotation .card-body::before {
     content:'';
+    z-index: 10;
     position:absolute;
     left: calc(0px - var(--annotation-dot-radius) - var(--annotation-leader-length-x) - var(--annotation-ref-line-length));
     right: 100%;
     top: calc(2/3 * var(--card-title-font-size));
-    z-index:10;
     height: calc(var(--annotation-dot-radius) + var(--annotation-leader-length-y));
     background:
         /*circle*/
@@ -313,11 +332,11 @@ dd {
 }
 .left-annotation .card-body::after {
     content:'';
+    z-index: 10;
     position:absolute;
     left: 100%;
     right: calc(0px - var(--annotation-dot-radius) - var(--annotation-leader-length-x) - var(--annotation-ref-line-length));
     top: calc(2/3 * var(--card-title-font-size));
-    z-index: 10;
     height: calc(var(--annotation-dot-radius) + var(--annotation-leader-length-y));
     background:
         /*circle*/
@@ -345,11 +364,10 @@ dd {
 .card:hover .card-title {
     text-decoration-line: underline;
     text-decoration-thickness: var(--card-img-border-width);
-    text-underline-offset: 0.15rem!important;
+    text-underline-offset: 0.15rem !important;
 }
 
 .card-text, .card-footnote, .card-footnote a {
-    /* font-family: monospace; */
     color: var(--text-primary-color);
 }
 
@@ -426,6 +444,7 @@ dd {
     vertical-align: baseline;
     height: var(--link-source-size);
     width: var(--link-source-size);
+    color: #000000;
     filter: var(--text-secondary-conversion-filter);
 }
 
@@ -452,11 +471,12 @@ dd {
 
 .contact-list {
     margin: 0px;
+    padding: 0px;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    align-items: start;
+    align-items: center;
     list-style: none;
 }
 
@@ -476,7 +496,9 @@ dd {
     margin-right: 4px;
     height: 1.5rem;
     width: 1.5rem;
+    color: #000000;
     filter: var(--text-secondary-conversion-filter);
+    -webkit-filter: var(--text-secondary-conversion-filter);
 }
 
 
@@ -485,7 +507,7 @@ dd {
     :root {
         --banner-view-spacer: calc(100vw / var(--banner-width-ref) * var(--banner-height-ref) + var(--banner-offset-y));
     }
-    main {
+    main::before {
         background-size: contain;
     }
 }
@@ -519,7 +541,6 @@ dd {
     }
     section {
         flex-direction: column;
-        /* margin: 0px var(--grid-adjusted-size-px) calc(1.5 * var(--grid-adjusted-size-px)) var(--grid-adjusted-size-px) !important; */
     }
     .title-block {
         align-self: flex-start;
@@ -579,17 +600,18 @@ dd {
         padding: 6px 3px;
     }
     section {
-        margin: 0px var(--grid-adjusted-size-px) calc(1.5 * var(--grid-adjusted-size-px)) var(--grid-adjusted-size-px) !important;
-    }
+        margin-right: var(--grid-adjusted-size-px) !important;
+        margin-bottom: calc(1.5 * var(--grid-adjusted-size-px)) !important;
+        margin-left: var(--grid-adjusted-size-px) !important;    }
     dd.d-flex {
-        display: block!important;
+        display: block !important;
     }
     .card {
         flex-direction: column !important;
     }
     .card-body {
         width: 100%;
-        border: none!important;
+        border: none !important;
         padding: 0px 0px 5px 0px !important;
     }
     .card-body::before, .card-body::after {
